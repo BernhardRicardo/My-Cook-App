@@ -26,4 +26,8 @@ Dabei wird auch noch der heimischer Lebensmittelvorrat aufgelistet. Des weiteren
 auch eine Einkaufslisten funktion, wobei man sowohl vom Vorrats-screen Lebensmittel der Einkaufsliste hinzufügen kann,
 als auch in einem Rezept fehlende Zutaten.
 
+Links zum Design:
+
 https://code.fbi.h-da.de/human-computer-interaction/HCI_SS23_Meyer/HCI_SS23_Meyer_Gruppe3-Junker_Kohl_Putranto_Wroblewski/-/blob/main/MyCookDesign
+
+https://code.fbi.h-da.de/human-computer-interaction/HCI_SS23_Meyer/HCI_SS23_Meyer_Gruppe3-Junker_Kohl_Putranto_Wroblewski/-/blob/main/MyCookDesign2
