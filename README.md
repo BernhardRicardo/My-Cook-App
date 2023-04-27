@@ -25,3 +25,5 @@ eingeraten werden können, aber auch schon bekannte Gerichte aus dem Internet.
 Dabei wird auch noch der heimischer Lebensmittelvorrat aufgelistet. Des weiteren hat die App
 auch eine Einkaufslisten funktion, wobei man sowohl vom Vorrats-screen Lebensmittel der Einkaufsliste hinzufügen kann,
 als auch in einem Rezept fehlende Zutaten.
+
+https://code.fbi.h-da.de/human-computer-interaction/HCI_SS23_Meyer/HCI_SS23_Meyer_Gruppe3-Junker_Kohl_Putranto_Wroblewski/-/blob/main/MyCookDesign
