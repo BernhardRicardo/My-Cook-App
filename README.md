@@ -17,14 +17,13 @@ Gruppenmitglieder:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-myCook
+myCook:
 
-ist eine App die das Kochen erleichtern soll. Indem sowohl Rezepte für eigene Gerichte 
-eingeraten werden können, aber auch schon bekannte Gerichte aus dem Internet.
+ist eine App, die das Kochen und die Essens-Vorratsplanung erleichtern soll. Dies soll sowohl über eigene Gerichte, welche eingetragen werden können, sowie über eine externe Datenbank bestehend aus Rezepten, die abgerufen werden können geschehen.
 
-Dabei wird auch noch der heimischer Lebensmittelvorrat aufgelistet. Des weiteren hat die App
-auch eine Einkaufslisten funktion, wobei man sowohl vom Vorrats-screen Lebensmittel der Einkaufsliste hinzufügen kann,
-als auch in einem Rezept fehlende Zutaten.
+Des Weiteren werden die Lebensmittelvorräte eingetragen und dann aufgelistet, für welche Rezepte diese benutzt werden können. Die App hat auch eine Einkauflisten-Funktion, mit der die fehlenden Lebensmittel eingetragen werden können.
+Man kann entweder automatisch durch die im Rezept fehlenden Zutaten diese eintragen lassen sowie neue Lebensmittel separat hinzufügen können.
+
 
 Links zum Design:
 
