@@ -14,7 +14,8 @@ Gruppenmitglieder:
     sven.wroblewski@stud.h-da.de
     bernhard.r.putranto@stud.h-da.de
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 myCook:
@@ -25,8 +26,33 @@ Des Weiteren werden die Lebensmittelvorräte eingetragen und dann aufgelistet, f
 Man kann entweder automatisch durch die im Rezept fehlenden Zutaten diese eintragen lassen sowie neue Lebensmittel separat hinzufügen können.
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 Links zum Design:
 
 https://code.fbi.h-da.de/human-computer-interaction/HCI_SS23_Meyer/HCI_SS23_Meyer_Gruppe3-Junker_Kohl_Putranto_Wroblewski/-/blob/main/MyCookDesign
 
 https://code.fbi.h-da.de/human-computer-interaction/HCI_SS23_Meyer/HCI_SS23_Meyer_Gruppe3-Junker_Kohl_Putranto_Wroblewski/-/blob/main/MyCookDesign2
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Funktion in Stichpunkten:
+
+    Rezepte:
+        - Eingeben
+        - Suchen
+        - Datenbankanbindung
+    
+    Vorräte: 
+        - Eingeben
+        - Suchen
+
+    Einkaufliste: 
+        - Hinzufügen
+        - Bestätigen/Abschließen
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
