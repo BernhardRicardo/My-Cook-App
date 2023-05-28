@@ -18,8 +18,8 @@
 
 ## Paper Prototypen
 
-![Protoyp](https://code.fbi.h-da.de/human-computer-interaction/HCI_SS23_Meyer/HCI_SS23_Meyer_Gruppe3-Junker_Kohl_Putranto_Wroblewski/-/blob/main/Meilenstein%203/Paper%20Prototype/Prototyp1.png)
-![Protoyp](https://code.fbi.h-da.de/human-computer-interaction/HCI_SS23_Meyer/HCI_SS23_Meyer_Gruppe3-Junker_Kohl_Putranto_Wroblewski/-/blob/main/Meilenstein%203/Paper%20Prototype/Prototyp2.png)
+![Protoyp](./Paper Prototype/Prototyp1.png)
+![Protoyp](./Paper Prototype/Prototyp2.png)
 
 Wir haben uns für ein Design mit 3 Haupt-Screens(Bild.1) entschieden, um die App möglichst simpel und easy-to-use zu gestalten. Zum Wechseln zwischen diesen Screens haben wir uns für eine Menüleiste entschieden.  Diese ist leicht verständlich und macht das schnelle Wechseln zwischen den 3 Screens möglich.
 
