@@ -14,7 +14,7 @@
 ![Diagram](20230526_160343.jpg)
 ### Screendiagramme
 
-![Diagram](screendiagramme.jpg)
+![Diagram](Screendiagramme.jpg)
 
 ## Paper Prototypen
 
