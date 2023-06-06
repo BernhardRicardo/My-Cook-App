@@ -3,13 +3,16 @@
     <item
         android:title="Inventory"
         android:id="@+id/inventory"
+        android:icon="@drawable/ic_inventory"
        />
     <item
         android:title="Favorites"
         android:id="@+id/favorites"
+        android:icon="@drawable/ic_favorites"
         />
     <item
         android:title="Shopping List"
         android:id="@+id/shopping"
+        android:icon="@drawable/shoppingcart"
         />
 </menu>

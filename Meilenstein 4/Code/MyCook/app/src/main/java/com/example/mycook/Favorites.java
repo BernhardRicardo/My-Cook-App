@@ -1,3 +1,8 @@
+/*TO-DO
+-add 3 screens -> recipe, recommended, search
+-design all screens and add correct functions
+*/
+
 package com.example.mycook;
 import java.io.*;
 
