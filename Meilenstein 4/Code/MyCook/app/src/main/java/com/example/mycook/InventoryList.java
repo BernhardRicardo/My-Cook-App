@@ -2,21 +2,12 @@ package com.example.mycook;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 
-import android.annotation.SuppressLint;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import android.content.Intent;
 import android.view.MenuItem;
 import android.os.Bundle;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.MenuItem;
-
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class InventoryList extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
@@ -27,7 +18,7 @@ public class InventoryList extends AppCompatActivity {
 
         //Menu-Bar
         bottomNavigationView = findViewById(R.id.bottonnav);
-        bottomNavigationView.setSelectedItemId(R.id.favorites);
+        bottomNavigationView.setSelectedItemId(R.id.bottonnav);
         //Function deprecated--> maybe switch in future
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
                                                                      @Override
@@ -37,7 +28,7 @@ public class InventoryList extends AppCompatActivity {
              startActivity(new Intent(getApplicationContext(), ShoppingList.class));
              overridePendingTransition(0,0);
              return true;
-         } else if (item.getItemId() == R.id.favorites){
+         } else if (item.getItemId() == R.id.bottonnav){
              startActivity(new Intent(getApplicationContext(), Favorites.class));
              overridePendingTransition(0,0);
              return true;

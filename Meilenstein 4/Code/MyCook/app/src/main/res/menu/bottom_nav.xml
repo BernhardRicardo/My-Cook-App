@@ -7,7 +7,7 @@
        />
     <item
         android:title="Favorites"
-        android:id="@+id/favorites"
+        android:id="@+id/bottonnav"
         android:icon="@drawable/ic_favorites"
         />
     <item

@@ -4,17 +4,13 @@
 */
 
 package com.example.mycook;
-import java.io.*;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.view.MenuItem;
-import android.os.Bundle;
 import android.os.Bundle;
 
 public class Favorites extends AppCompatActivity  {
@@ -27,7 +23,7 @@ public class Favorites extends AppCompatActivity  {
         setContentView(R.layout.activity_favorites);
         //Menu-Bar
         bottomNavigationView = findViewById(R.id.bottonnav);
-        bottomNavigationView.setSelectedItemId(R.id.favorites);
+        bottomNavigationView.setSelectedItemId(R.id.bottonnav);
         //Function deprecated--> maybe switch in future
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
