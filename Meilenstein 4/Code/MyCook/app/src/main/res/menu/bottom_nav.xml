@@ -4,6 +4,7 @@
         android:title="Inventory"
         android:id="@+id/inventory"
         android:icon="@drawable/ic_inventory"
+
        />
     <item
         android:title="Favorites"
