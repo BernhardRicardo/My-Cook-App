@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="Inventory"
+        android:id="@+id/inventory"
+       />
+    <item
+        android:title="Favorites"
+        android:id="@+id/favorites"
+        />
+    <item
+        android:title="Shopping List"
+        android:id="@+id/shopping"
+        />
+</menu>
