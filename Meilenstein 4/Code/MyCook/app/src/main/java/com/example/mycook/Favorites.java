@@ -8,10 +8,11 @@ package com.example.mycook;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 import android.content.Intent;
 import android.view.MenuItem;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageView;
 
 public class Favorites extends AppCompatActivity  {
 
@@ -42,6 +43,9 @@ public class Favorites extends AppCompatActivity  {
             }
         }
         );
+    }
+    public void registerImageClick(View view){
+        startActivity(new Intent(getApplicationContext(), Recipe.class));
     }
 }
 
