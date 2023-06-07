@@ -7,7 +7,7 @@
     tools:context=".Recommended">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottonnav"
+        android:id="@+id/b_favorites"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_menu"
@@ -19,4 +19,14 @@
         app:menu="@menu/bottom_nav"
 
         />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="181dp"
+        android:layout_height="84dp"
+        android:text="Recommended Screen"
+        app:layout_constraintBottom_toTopOf="@+id/b_favorites"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

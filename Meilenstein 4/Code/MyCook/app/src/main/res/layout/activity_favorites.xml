@@ -11,7 +11,7 @@
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottonnav"
+        android:id="@+id/b_favorites"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_menu"
@@ -29,7 +29,7 @@
         android:layout_height="60dp"
         android:background="@drawable/roundedcorners"
         app:defaultQueryHint="Search"
-        app:layout_constraintBottom_toTopOf="@+id/bottonnav"
+        app:layout_constraintBottom_toTopOf="@+id/b_favorites"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,17 +38,8 @@
         android:backgroundTint="@color/white"
 
 
-        app:queryHint="Search Recipe" /><![CDATA[
+        app:queryHint="Search Recipe" />
 
-
-
-
-
-        />
-
-
-
-    ]]>
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/steak"
@@ -61,12 +52,12 @@
         android:onClick="registerImageClick"
         android:scaleType="fitXY"
         android:src="@drawable/steak"
-        app:layout_constraintBottom_toTopOf="@+id/bottonnav"
+        app:layout_constraintBottom_toTopOf="@+id/b_favorites"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView"
-        app:layout_constraintVertical_bias="0.092"
+        app:layout_constraintVertical_bias="0.204"
         app:shapeAppearanceOverlay="@style/roundImageView"
 
         app:srcCompat="@drawable/steak" />
@@ -82,12 +73,13 @@
         android:scaleType="fitXY"
         android:tag="Chicken
 "
-        app:layout_constraintBottom_toTopOf="@+id/bottonnav"
+        app:layout_constraintBottom_toTopOf="@+id/b_favorites"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/steak"
 
+        app:layout_constraintVertical_bias="0.296"
         app:shapeAppearanceOverlay="@style/roundImageView"
         app:srcCompat="@drawable/huhnchen" />
 
@@ -99,12 +91,12 @@
         android:layout_marginTop="40dp"
         android:layout_marginEnd="25dp"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/bottonnav"
+        app:layout_constraintBottom_toTopOf="@+id/b_favorites"
         app:layout_constraintEnd_toStartOf="@+id/steak"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView"
-        app:layout_constraintVertical_bias="0.091"
+        app:layout_constraintVertical_bias="0.204"
 
         app:shapeAppearanceOverlay="@style/roundImageView"
         app:srcCompat="@drawable/carbonara" />
@@ -117,12 +109,13 @@
         android:layout_marginEnd="25dp"
         android:contentDescription="Apfekuchen"
         android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/bottonnav"
+        app:layout_constraintBottom_toTopOf="@+id/b_favorites"
         app:layout_constraintEnd_toStartOf="@+id/chicken"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/noodle"
 
+        app:layout_constraintVertical_bias="0.296"
         app:shapeAppearanceOverlay="@style/roundImageView"
         app:srcCompat="@drawable/apfelkuchen" />
 
@@ -198,5 +191,19 @@
         app:layout_constraintStart_toStartOf="@+id/apple"
         app:layout_constraintTop_toTopOf="@+id/apple"
         app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Recommended"
+        app:layout_constraintBottom_toTopOf="@+id/noodle"
+        app:layout_constraintEnd_toStartOf="@+id/steak"
+        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        android:backgroundTint="@color/black"
+        android:fontFamily="sans-serif-black"
+        android:onClick="recommendedClick"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

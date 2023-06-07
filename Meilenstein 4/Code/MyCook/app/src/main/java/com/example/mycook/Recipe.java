@@ -19,20 +19,24 @@ public class Recipe extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe);
         //Menu-Bar
-        bottomNavigationView = findViewById(R.id.bottonnav);
-        bottomNavigationView.setSelectedItemId(R.id.bottonnav);
+        bottomNavigationView = findViewById(R.id.b_favorites);
+        bottomNavigationView.setSelectedItemId(R.id.b_favorites);
         //Function deprecated--> maybe switch in future
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                if (item.getItemId() == R.id.inventory) {
+                if (item.getItemId() == R.id.b_inventory) {
                     startActivity(new Intent(getApplicationContext(), InventoryList.class));
-                    overridePendingTransition(0,0);
+                    overridePendingTransition(0, 0);
                     return true;
-                } else if (item.getItemId() == R.id.shopping){
+                } else if (item.getItemId() == R.id.b_shopping) {
                     startActivity(new Intent(getApplicationContext(), ShoppingList.class));
-                    overridePendingTransition(0,0);
+                    overridePendingTransition(0, 0);
+                    return true;
+                } else if (item.getItemId() == R.id.b_favorites) {
+                    startActivity(new Intent(getApplicationContext(), Favorites.class));
+                    overridePendingTransition(0, 0);
                     return true;
                 } else
                     return false;

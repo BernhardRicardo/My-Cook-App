@@ -17,18 +17,18 @@ public class InventoryList extends AppCompatActivity {
         setContentView(R.layout.activity_inventory_list);
 
         //Menu-Bar
-        bottomNavigationView = findViewById(R.id.bottonnav);
-        bottomNavigationView.setSelectedItemId(R.id.bottonnav);
+        bottomNavigationView = findViewById(R.id.b_inventory);
+        bottomNavigationView.setSelectedItemId(R.id.b_inventory);
         //Function deprecated--> maybe switch in future
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
                                                                      @Override
        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-         if (item.getItemId() == R.id.shopping) {
+         if (item.getItemId() == R.id.b_shopping) {
              startActivity(new Intent(getApplicationContext(), ShoppingList.class));
              overridePendingTransition(0,0);
              return true;
-         } else if (item.getItemId() == R.id.bottonnav){
+         } else if (item.getItemId() == R.id.b_favorites){
              startActivity(new Intent(getApplicationContext(), Favorites.class));
              overridePendingTransition(0,0);
              return true;

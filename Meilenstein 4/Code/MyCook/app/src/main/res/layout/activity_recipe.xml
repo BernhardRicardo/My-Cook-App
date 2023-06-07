@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Recipe">
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottonnav"
+        android:id="@+id/b_favorites"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_menu"
@@ -18,4 +18,14 @@
         app:menu="@menu/bottom_nav"
 
         />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="125dp"
+        android:layout_height="81dp"
+        android:text="Recipe Screen"
+        app:layout_constraintBottom_toTopOf="@+id/b_favorites"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

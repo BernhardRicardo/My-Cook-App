@@ -12,7 +12,6 @@ import android.content.Intent;
 import android.view.MenuItem;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 
 public class Favorites extends AppCompatActivity  {
 
@@ -23,18 +22,18 @@ public class Favorites extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
         //Menu-Bar
-        bottomNavigationView = findViewById(R.id.bottonnav);
-        bottomNavigationView.setSelectedItemId(R.id.bottonnav);
+        bottomNavigationView = findViewById(R.id.b_favorites);
+        bottomNavigationView.setSelectedItemId(R.id.b_favorites);
         //Function deprecated--> maybe switch in future
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-                if (item.getItemId() == R.id.inventory) {
+                if (item.getItemId() == R.id.b_inventory) {
                     startActivity(new Intent(getApplicationContext(), InventoryList.class));
                     overridePendingTransition(0,0);
                     return true;
-                } else if (item.getItemId() == R.id.shopping){
+                } else if (item.getItemId() == R.id.b_shopping){
                     startActivity(new Intent(getApplicationContext(), ShoppingList.class));
                     overridePendingTransition(0,0);
                     return true;
@@ -47,6 +46,12 @@ public class Favorites extends AppCompatActivity  {
     public void registerImageClick(View view){
         startActivity(new Intent(getApplicationContext(), Recipe.class));
     }
+
+    public void recommendedClick(View view){
+        bottomNavigationView.setSelectedItemId(0);
+        startActivity(new Intent(getApplicationContext(), Recipe.class));
+    }
+
 }
 
 

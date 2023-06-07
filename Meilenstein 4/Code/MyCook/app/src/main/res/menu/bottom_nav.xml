@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:title="Inventory"
-        android:id="@+id/inventory"
+        android:id="@+id/b_inventory"
         android:icon="@drawable/ic_inventory"
 
        />
     <item
         android:title="Favorites"
-        android:id="@+id/bottonnav"
+        android:id="@+id/b_favorites"
         android:icon="@drawable/ic_favorites"
         />
     <item
         android:title="Shopping List"
-        android:id="@+id/shopping"
+        android:id="@+id/b_shopping"
         android:icon="@drawable/shoppingcart"
         />
 </menu>
