@@ -25,7 +25,7 @@
         />
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
-        android:layout_width="412dp"
+        android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@drawable/roundedcorners"
         app:defaultQueryHint="Search"
@@ -38,7 +38,17 @@
         android:backgroundTint="@color/white"
 
 
-        app:queryHint="Search Recipe" />
+        app:queryHint="Search Recipe" /><![CDATA[
+
+
+
+
+
+        />
+
+
+
+    ]]>
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/steak"
@@ -47,24 +57,19 @@
         android:layout_marginStart="236dp"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="25dp"
+        android:background="@drawable/roundedcorners"
+        android:onClick="registerImageClick"
         android:scaleType="fitXY"
+        android:src="@drawable/steak"
         app:layout_constraintBottom_toTopOf="@+id/bottonnav"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView"
-        app:layout_constraintVertical_bias="0.091"
-        android:src="@drawable/steak"
-        android:background="@drawable/roundedcorners"
+        app:layout_constraintVertical_bias="0.092"
         app:shapeAppearanceOverlay="@style/roundImageView"
-        app:srcCompat="@drawable/steak"
 
-        android:onClick="registerImageClick"
-        />
-
-
-
-        />
+        app:srcCompat="@drawable/steak" />
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/chicken"
@@ -92,6 +97,7 @@
         android:layout_height="150dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="40dp"
+        android:layout_marginEnd="25dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toTopOf="@+id/bottonnav"
         app:layout_constraintEnd_toStartOf="@+id/steak"
@@ -99,8 +105,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/searchView"
         app:layout_constraintVertical_bias="0.091"
-        app:shapeAppearanceOverlay="@style/roundImageView"
 
+        app:shapeAppearanceOverlay="@style/roundImageView"
         app:srcCompat="@drawable/carbonara" />
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -116,9 +122,9 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/noodle"
-        app:srcCompat="@drawable/apfelkuchen"
 
-        app:shapeAppearanceOverlay="@style/roundImageView"/>
+        app:shapeAppearanceOverlay="@style/roundImageView"
+        app:srcCompat="@drawable/apfelkuchen" />
 
     <TextView
         android:id="@+id/textViewNoodle"

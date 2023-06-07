@@ -10,12 +10,12 @@
 
     <TextView
         android:id="@+id/inventoryHeader"
-        android:layout_width="414dp"
+        android:layout_width="match_parent"
         android:layout_height="75dp"
         android:contentDescription="Inventory"
         android:fontFamily="sans-serif-black"
         android:lineSpacingExtra="8sp"
-        android:text="Shopping List"
+        android:text="Inventory"
         android:textAlignment="viewStart"
         android:textAllCaps="false"
         android:textColor="@color/black"
