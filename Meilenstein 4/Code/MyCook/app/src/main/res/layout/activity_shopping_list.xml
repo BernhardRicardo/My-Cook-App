@@ -36,9 +36,46 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/bottonnav"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:text=" shopping list" />
+
+    <ListView
+        android:id="@+id/listviewShoppinglist"
+        android:layout_width="228dp"
+        android:layout_height="446dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottonnav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.13"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ShoppingHeader" />
+
+    <Button
+        android:id="@+id/buttonAddShoppinglist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        app:layout_constraintBottom_toTopOf="@+id/bottonnav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.33"
+        app:layout_constraintStart_toEndOf="@+id/listviewShoppinglist"
+        app:layout_constraintTop_toBottomOf="@+id/ShoppingHeader"
+        app:layout_constraintVertical_bias="0.51" />
+
+    <EditText
+        android:id="@+id/eingabefeldShoppinglist"
+        android:layout_width="144dp"
+        android:layout_height="49dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="WarenName"
+        app:layout_constraintBottom_toTopOf="@+id/buttonAddShoppinglist"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintStart_toEndOf="@+id/listviewShoppinglist"
+        app:layout_constraintTop_toBottomOf="@+id/ShoppingHeader"
+        app:layout_constraintVertical_bias="0.98" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
