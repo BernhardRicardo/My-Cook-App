@@ -49,7 +49,7 @@ public class InventoryList extends AppCompatActivity {
                     startActivity(new Intent(getApplicationContext(), ShoppingList.class));
                     overridePendingTransition(0,0);
                     return true;
-                } else if (item.getItemId() == R.id.bottonnav){
+                } else if (item.getItemId() == R.id.b_favorites){
                     startActivity(new Intent(getApplicationContext(), Favorites.class));
                     overridePendingTransition(0,0);
                     return true;
