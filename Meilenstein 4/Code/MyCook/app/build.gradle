@@ -1,7 +1,13 @@
 plugins {
     id 'com.android.application'
 }
+task wrapper(type: Wrapper) {
+    gradleVersion = '7.3.3'
+}
 
+task prepareKotlinBuildScriptModel {
+
+}
 android {
     namespace 'com.example.mycook'
     compileSdk 33
