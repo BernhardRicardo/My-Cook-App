@@ -15,7 +15,7 @@
         android:contentDescription="Inventory"
         android:fontFamily="sans-serif-black"
         android:lineSpacingExtra="8sp"
-        android:text="Shopping List"
+        android:text="Inventory"
         android:textAlignment="viewStart"
         android:textAllCaps="false"
         android:textColor="@color/black"

@@ -59,8 +59,6 @@ public class InventoryList extends AppCompatActivity {
         }
         );
 
-
-        setContentView(R.layout.activity_inventory_list);
         invList = findViewById(R.id.listInventar);
         // inventar = new ArrayList<>();
         ArrayAdapter<String> arr;
