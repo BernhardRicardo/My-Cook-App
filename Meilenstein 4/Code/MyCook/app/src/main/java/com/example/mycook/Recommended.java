@@ -11,7 +11,7 @@ import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Recommended extends AppCompatActivity {
+public class Recommended extends AppCompatActivity implements RecyclerViewInterface{
 
     BottomNavigationView bottomNavigationView;
 
@@ -31,7 +31,7 @@ public class Recommended extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         // Pass in an array of images to display
-        recyclerViewAdapter = new RecyclerViewAdapter(arr);
+        recyclerViewAdapter = new RecyclerViewAdapter(arr, this);
 
         recyclerView.setAdapter(recyclerViewAdapter);
         recyclerView.setHasFixedSize(true);
@@ -62,5 +62,11 @@ public class Recommended extends AppCompatActivity {
             }
         );
         */
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        Intent intent = new Intent(this, Recipe.class);
+        startActivity(intent);
     }
 }

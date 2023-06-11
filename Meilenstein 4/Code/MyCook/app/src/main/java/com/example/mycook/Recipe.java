@@ -18,6 +18,7 @@ public class Recipe extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe);
         //Menu-Bar
+        /*
         bottomNavigationView = findViewById(R.id.b_favorites);
         bottomNavigationView.setSelectedItemId(R.id.b_favorites);
         //Function deprecated--> maybe switch in future
@@ -41,6 +42,6 @@ public class Recipe extends AppCompatActivity {
                     return false;
             }
         }
-        );
+        );*/
     }
     }
