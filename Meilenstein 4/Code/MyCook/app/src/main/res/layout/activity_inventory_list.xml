@@ -34,7 +34,6 @@
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
         android:layout_marginBottom="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottom_nav" />
 
     <ListView
@@ -43,5 +42,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/inventoryHeader"
         android:layout_above="@+id/b_inventory"/>
+
 
 </RelativeLayout>
