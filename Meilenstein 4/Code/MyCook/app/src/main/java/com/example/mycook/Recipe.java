@@ -13,7 +13,6 @@ public class Recipe extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

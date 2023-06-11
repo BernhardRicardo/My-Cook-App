@@ -62,11 +62,8 @@ public class InventoryList extends AppCompatActivity {
         invList = findViewById(R.id.listInventar);
         // inventar = new ArrayList<>();
         ArrayAdapter<String> arr;
-        arr
-                = new ArrayAdapter<String>(
-                this, android.R.layout.simple_list_item_1, inventar);
+        arr = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, inventar);
         invList.setAdapter(arr);
-
 
         invList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override

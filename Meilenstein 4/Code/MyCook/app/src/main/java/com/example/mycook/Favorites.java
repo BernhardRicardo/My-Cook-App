@@ -49,7 +49,7 @@ public class Favorites extends AppCompatActivity  {
 
     public void recommendedClick(View view){
         bottomNavigationView.setSelectedItemId(0);
-        startActivity(new Intent(getApplicationContext(), Recipe.class));
+        startActivity(new Intent(getApplicationContext(), Recommended.class));
     }
 
 }
