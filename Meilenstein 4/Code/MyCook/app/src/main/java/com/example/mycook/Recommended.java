@@ -2,6 +2,8 @@ package com.example.mycook;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,11 +15,28 @@ public class Recommended extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
 
+    private RecyclerView recyclerView;
+    RecyclerView.LayoutManager layoutManager;
+    RecyclerViewAdapter recyclerViewAdapter;
+
+    int []arr = {R.drawable.carbonara, R.drawable.carbonara, R.drawable.carbonara, R.drawable.carbonara};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recommended);
 
+        recyclerView = findViewById(R.id.recyclerView);
+        layoutManager = new GridLayoutManager(this, 2);
+        recyclerView.setLayoutManager(layoutManager);
+
+        // Pass in an array of images to display
+        recyclerViewAdapter = new RecyclerViewAdapter(arr);
+
+        recyclerView.setAdapter(recyclerViewAdapter);
+        recyclerView.setHasFixedSize(true);
+
+/*
         bottomNavigationView = findViewById(R.id.b_favorites);
         bottomNavigationView.setSelectedItemId(R.id.b_favorites);
         //Function deprecated--> maybe switch in future
@@ -39,8 +58,9 @@ public class Recommended extends AppCompatActivity {
                     return true;
                 } else
                     return false;
+                }
             }
-        }
         );
+        */
     }
 }
