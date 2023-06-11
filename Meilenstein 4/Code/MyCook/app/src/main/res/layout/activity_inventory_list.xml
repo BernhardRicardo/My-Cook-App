@@ -1,55 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/screen_inventory"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="?attr/actionBarSize"
     android:background="#5C808080">
 
     <TextView
         android:id="@+id/inventoryHeader"
-        android:layout_width="414dp"
+        android:layout_width="match_parent"
         android:layout_height="75dp"
         android:contentDescription="Inventory"
         android:fontFamily="sans-serif-black"
         android:lineSpacingExtra="8sp"
-        android:text="Inventory"
+        android:text="inventory"
         android:textAlignment="viewStart"
         android:textAllCaps="false"
         android:textColor="@color/black"
-        android:textSize="48sp"
+        android:textSize="42sp"
         android:textStyle="bold"
         android:typeface="sans"
-        app:layout_constraintBottom_toTopOf="@+id/listInventar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text=" inventory" />
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="20dp"
+        tools:text="inventory" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/b_inventory"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:background="@drawable/rounded_menu"
         app:itemIconTint="@color/white"
         app:itemTextColor="@color/white"
+        android:layout_marginBottom="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/bottom_nav"
-
-        />
+        app:menu="@menu/bottom_nav" />
 
     <ListView
         android:id="@+id/listInventar"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/b_inventory"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inventoryHeader" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/inventoryHeader"
+        android:layout_above="@+id/b_inventory"/>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
