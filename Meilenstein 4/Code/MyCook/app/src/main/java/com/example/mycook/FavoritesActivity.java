@@ -13,7 +13,7 @@ import android.view.MenuItem;
 import android.os.Bundle;
 import android.view.View;
 
-public class Favorites extends AppCompatActivity  {
+public class FavoritesActivity extends AppCompatActivity  {
 
     BottomNavigationView bottomNavigationView;
 
@@ -30,11 +30,11 @@ public class Favorites extends AppCompatActivity  {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 if (item.getItemId() == R.id.b_inventory) {
-                    startActivity(new Intent(getApplicationContext(), InventoryList.class));
+                    startActivity(new Intent(getApplicationContext(), InventoryListActivity.class));
                     overridePendingTransition(0,0);
                     return true;
                 } else if (item.getItemId() == R.id.b_shopping){
-                    startActivity(new Intent(getApplicationContext(), ShoppingList.class));
+                    startActivity(new Intent(getApplicationContext(), ShoppingListActivity.class));
                     overridePendingTransition(0,0);
                     return true;
                 } else
@@ -44,12 +44,12 @@ public class Favorites extends AppCompatActivity  {
         );
     }
     public void registerImageClick(View view){
-        startActivity(new Intent(getApplicationContext(), Recipe.class));
+        startActivity(new Intent(getApplicationContext(), RecipeActivity.class));
     }
 
     public void recommendedClick(View view){
         bottomNavigationView.setSelectedItemId(0);
-        startActivity(new Intent(getApplicationContext(), Recommended.class));
+        startActivity(new Intent(getApplicationContext(), RecommendedActivity.class));
     }
 
 }

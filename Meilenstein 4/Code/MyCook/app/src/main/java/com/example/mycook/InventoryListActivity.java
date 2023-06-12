@@ -12,17 +12,11 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
 import android.widget.AdapterView;
-import androidx.appcompat.app.AppCompatActivity;
-import android.os.Bundle;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 
-public class InventoryList extends AppCompatActivity {
+public class InventoryListActivity extends AppCompatActivity {
 
     ListView invList;
     static String inventar[] = {
@@ -46,11 +40,11 @@ public class InventoryList extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.b_shopping) {
-                    startActivity(new Intent(getApplicationContext(), ShoppingList.class));
+                    startActivity(new Intent(getApplicationContext(), ShoppingListActivity.class));
                     overridePendingTransition(0,0);
                     return true;
                 } else if (item.getItemId() == R.id.b_favorites){
-                    startActivity(new Intent(getApplicationContext(), Favorites.class));
+                    startActivity(new Intent(getApplicationContext(), FavoritesActivity.class));
                     overridePendingTransition(0,0);
                     return true;
                 } else
