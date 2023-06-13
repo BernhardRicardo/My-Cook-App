@@ -7,20 +7,38 @@ package com.example.mycook;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import android.content.Intent;
 import android.view.MenuItem;
 import android.os.Bundle;
 import android.view.View;
 
-public class Favorites extends AppCompatActivity  {
+
+public class Favorites extends AppCompatActivity implements RecyclerViewInterface {
 
     BottomNavigationView bottomNavigationView;
+    private RecyclerView recyclerView;
+    RecyclerView.LayoutManager layoutManager;
+    RecyclerViewAdapter favRecyclerViewAdapter;
 
+    int []arr = {R.drawable.carbonara, R.drawable.carbonara, R.drawable.carbonara, R.drawable.carbonara};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
+
+        recyclerView =  findViewById(R.id.recyclerView);
+        layoutManager = new GridLayoutManager(this, 2);
+        recyclerView.setLayoutManager(layoutManager);
+
+        // Pass in an array of images to display
+        favRecyclerViewAdapter = new RecyclerViewAdapter(arr, this);
+
+        recyclerView.setAdapter(favRecyclerViewAdapter);
+        recyclerView.setHasFixedSize(true);
         //Menu-Bar
         bottomNavigationView = findViewById(R.id.b_favorites);
         bottomNavigationView.setSelectedItemId(R.id.b_favorites);
@@ -52,6 +70,10 @@ public class Favorites extends AppCompatActivity  {
         startActivity(new Intent(getApplicationContext(), Recommended.class));
     }
 
+    @Override
+    public void onItemClick(int position) {
+        
+    }
 }
 
 

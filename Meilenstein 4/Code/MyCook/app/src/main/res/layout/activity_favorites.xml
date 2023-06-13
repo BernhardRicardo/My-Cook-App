@@ -23,187 +23,203 @@
         app:menu="@menu/bottom_nav"
 
         />
+
+    <!--
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/steak"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="236dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/roundedcorners"
+            android:onClick="registerImageClick"
+            android:scaleType="fitXY"
+            android:src="@drawable/steak"
+            app:layout_constraintBottom_toTopOf="@+id/b_favorites"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchView"
+            app:layout_constraintVertical_bias="0.204"
+            app:shapeAppearanceOverlay="@style/roundImageView"
+
+            app:srcCompat="@drawable/steak" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/chicken"
+            android:layout_width="150dp"
+
+            android:layout_height="150dp"
+            android:layout_marginStart="236dp"
+            android:layout_marginEnd="25dp"
+            android:background="@drawable/roundedcorners"
+            android:scaleType="fitXY"
+            android:tag="Chicken
+    "
+            app:layout_constraintBottom_toTopOf="@+id/b_favorites"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/steak"
+
+            app:layout_constraintVertical_bias="0.296"
+            app:shapeAppearanceOverlay="@style/roundImageView"
+            app:srcCompat="@drawable/huhnchen" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/noodle"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="25dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toTopOf="@+id/b_favorites"
+            app:layout_constraintEnd_toStartOf="@+id/steak"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/searchView"
+            app:layout_constraintVertical_bias="0.204"
+
+            app:shapeAppearanceOverlay="@style/roundImageView"
+            app:srcCompat="@drawable/carbonara" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/apple"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginEnd="25dp"
+            android:contentDescription="Apfekuchen"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toTopOf="@+id/b_favorites"
+            app:layout_constraintEnd_toStartOf="@+id/chicken"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/noodle"
+
+            app:layout_constraintVertical_bias="0.296"
+            app:shapeAppearanceOverlay="@style/roundImageView"
+            app:srcCompat="@drawable/apfelkuchen" />
+
+        <TextView
+            android:id="@+id/textViewNoodle"
+            android:layout_width="140dp"
+            android:layout_height="25dp"
+            android:text="Carbonara"
+            android:textColor="@color/white"
+            android:textAlignment="center"
+            android:fontFamily="sans-serif-black"
+
+            app:layout_constraintBottom_toBottomOf="@+id/noodle"
+            app:layout_constraintEnd_toEndOf="@+id/noodle"
+            app:layout_constraintHorizontal_bias="0.6"
+
+            app:layout_constraintStart_toStartOf="@+id/noodle"
+            app:layout_constraintTop_toTopOf="@+id/noodle"
+            app:layout_constraintVertical_bias="1.0"
+            android:background="@drawable/roundedcorners"
+            android:backgroundTint="#5C808080"/>
+
+        <TextView
+            android:id="@+id/textViewSteak"
+            android:layout_width="140dp"
+            android:layout_height="26dp"
+            android:text="Steak and Potatoes"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-black"
+            app:layout_constraintBottom_toBottomOf="@+id/steak"
+            app:layout_constraintEnd_toEndOf="@+id/steak"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toStartOf="@+id/steak"
+            app:layout_constraintTop_toTopOf="@+id/steak"
+            app:layout_constraintVertical_bias="1.0"
+            android:background="@drawable/roundedcorners"
+            android:backgroundTint="#5C808080"/>
+
+        <TextView
+            android:id="@+id/textViewChicken"
+
+            android:layout_width="140dp"
+            android:layout_height="26dp"
+            android:fontFamily="sans-serif-black"
+            android:text="Garlic Chicken"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/chicken"
+            app:layout_constraintEnd_toEndOf="@+id/chicken"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toStartOf="@+id/chicken"
+            app:layout_constraintTop_toTopOf="@+id/chicken"
+            app:layout_constraintVertical_bias="1.0"
+            android:background="@drawable/roundedcorners"
+            android:backgroundTint="#5C808080" />
+
+        <TextView
+            android:id="@+id/textViewSApple"
+            android:layout_width="140dp"
+            android:layout_height="26dp"
+            android:background="@drawable/roundedcorners"
+            android:backgroundTint="#5C808080"
+
+            android:fontFamily="sans-serif-black"
+            android:text="Apfelkuchen"
+            android:textAlignment="center"
+
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/apple"
+            app:layout_constraintEnd_toEndOf="@+id/apple"
+            app:layout_constraintHorizontal_bias="0.6"
+            app:layout_constraintStart_toStartOf="@+id/apple"
+            app:layout_constraintTop_toTopOf="@+id/apple"
+            app:layout_constraintVertical_bias="1.0" />
+    -->
+
     <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:background="@drawable/roundedcorners"
-        app:defaultQueryHint="Search"
-        app:layout_constraintBottom_toTopOf="@+id/b_favorites"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         android:backgroundTint="@color/white"
-
-
-        app:queryHint="Search Recipe" />
-
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/steak"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="236dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/roundedcorners"
-        android:onClick="registerImageClick"
-        android:scaleType="fitXY"
-        android:src="@drawable/steak"
+        app:defaultQueryHint="Search"
         app:layout_constraintBottom_toTopOf="@+id/b_favorites"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView"
-        app:layout_constraintVertical_bias="0.204"
-        app:shapeAppearanceOverlay="@style/roundImageView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.005"
 
-        app:srcCompat="@drawable/steak" />
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/chicken"
-        android:layout_width="150dp"
+        app:queryHint="Search Recipe" />
 
-        android:layout_height="150dp"
-        android:layout_marginStart="236dp"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/roundedcorners"
-        android:scaleType="fitXY"
-        android:tag="Chicken
-"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="440dp"
         app:layout_constraintBottom_toTopOf="@+id/b_favorites"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/steak"
 
-        app:layout_constraintVertical_bias="0.296"
-        app:shapeAppearanceOverlay="@style/roundImageView"
-        app:srcCompat="@drawable/huhnchen" />
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/noodle"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="25dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/b_favorites"
-        app:layout_constraintEnd_toStartOf="@+id/steak"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView"
-        app:layout_constraintVertical_bias="0.204"
-
-        app:shapeAppearanceOverlay="@style/roundImageView"
-        app:srcCompat="@drawable/carbonara" />
-
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/apple"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="25dp"
-        android:layout_marginEnd="25dp"
-        android:contentDescription="Apfekuchen"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/b_favorites"
-        app:layout_constraintEnd_toStartOf="@+id/chicken"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noodle"
-
-        app:layout_constraintVertical_bias="0.296"
-        app:shapeAppearanceOverlay="@style/roundImageView"
-        app:srcCompat="@drawable/apfelkuchen" />
-
-    <TextView
-        android:id="@+id/textViewNoodle"
-        android:layout_width="140dp"
-        android:layout_height="25dp"
-        android:text="Carbonara"
-        android:textColor="@color/white"
-        android:textAlignment="center"
-        android:fontFamily="sans-serif-black"
-
-        app:layout_constraintBottom_toBottomOf="@+id/noodle"
-        app:layout_constraintEnd_toEndOf="@+id/noodle"
-        app:layout_constraintHorizontal_bias="0.6"
-
-        app:layout_constraintStart_toStartOf="@+id/noodle"
-        app:layout_constraintTop_toTopOf="@+id/noodle"
-        app:layout_constraintVertical_bias="1.0"
-        android:background="@drawable/roundedcorners"
-        android:backgroundTint="#5C808080"/>
-
-    <TextView
-        android:id="@+id/textViewSteak"
-        android:layout_width="140dp"
-        android:layout_height="26dp"
-        android:text="Steak and Potatoes"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:fontFamily="sans-serif-black"
-        app:layout_constraintBottom_toBottomOf="@+id/steak"
-        app:layout_constraintEnd_toEndOf="@+id/steak"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="@+id/steak"
-        app:layout_constraintTop_toTopOf="@+id/steak"
-        app:layout_constraintVertical_bias="1.0"
-        android:background="@drawable/roundedcorners"
-        android:backgroundTint="#5C808080"/>
-
-    <TextView
-        android:id="@+id/textViewChicken"
-
-        android:layout_width="140dp"
-        android:layout_height="26dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Garlic Chicken"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/chicken"
-        app:layout_constraintEnd_toEndOf="@+id/chicken"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="@+id/chicken"
-        app:layout_constraintTop_toTopOf="@+id/chicken"
-        app:layout_constraintVertical_bias="1.0"
-        android:background="@drawable/roundedcorners"
-        android:backgroundTint="#5C808080" />
-
-    <TextView
-        android:id="@+id/textViewSApple"
-        android:layout_width="140dp"
-        android:layout_height="26dp"
-        android:background="@drawable/roundedcorners"
-        android:backgroundTint="#5C808080"
-
-        android:fontFamily="sans-serif-black"
-        android:text="Apfelkuchen"
-        android:textAlignment="center"
-
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="@+id/apple"
-        app:layout_constraintEnd_toEndOf="@+id/apple"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="@+id/apple"
-        app:layout_constraintTop_toTopOf="@+id/apple"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintVertical_bias="0.038" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Recommended"
-        app:layout_constraintBottom_toTopOf="@+id/noodle"
-        app:layout_constraintEnd_toStartOf="@+id/steak"
-        app:layout_constraintHorizontal_bias="0.11"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView"
         android:backgroundTint="@color/black"
         android:fontFamily="sans-serif-black"
-        android:onClick="recommendedClick"/>
+        android:onClick="recommendedClick"
+
+        android:text="Recommended"
+        app:layout_constraintBottom_toTopOf="@+id/b_favorites"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:layout_constraintVertical_bias="0.021" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
