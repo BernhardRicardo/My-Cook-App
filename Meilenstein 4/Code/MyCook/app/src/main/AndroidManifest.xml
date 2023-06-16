@@ -13,19 +13,19 @@
         android:theme="@style/Theme.MyCook"
         tools:targetApi="31">
         <activity
-            android:name=".Recommended"
+            android:name=".RecommendedActivity"
             android:exported="false" />
         <activity
-            android:name=".Recipe"
+            android:name=".RecipeActivity"
             android:exported="false" />
         <activity
-            android:name=".InventoryList"
+            android:name=".InventoryListActivity"
             android:exported="false" />
         <activity
-            android:name=".ShoppingList"
+            android:name=".ShoppingListActivity"
             android:exported="false" />
         <activity
-            android:name=".Favorites"
+            android:name=".FavoritesActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
