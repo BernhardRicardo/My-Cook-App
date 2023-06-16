@@ -1,17 +1,15 @@
 package com.example.mycook;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class Recommended extends AppCompatActivity implements RecyclerViewInterface{
+public class RecommendedActivity extends AppCompatActivity implements RecyclerViewInterface{
 
     BottomNavigationView bottomNavigationView;
 
@@ -66,7 +64,7 @@ public class Recommended extends AppCompatActivity implements RecyclerViewInterf
 
     @Override
     public void onItemClick(int position) {
-        Intent intent = new Intent(this, Recipe.class);
+        Intent intent = new Intent(this, RecipeActivity.class);
         startActivity(intent);
     }
 }

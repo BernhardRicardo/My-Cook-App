@@ -5,7 +5,6 @@ import androidx.annotation.NonNull;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.MenuItem;
 import android.os.Bundle;
@@ -15,12 +14,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
+
 import java.util.ArrayList;
 import android.view.View.OnClickListener;
-import android.view.View.OnClickListener;
 
-public class ShoppingList extends AppCompatActivity {
+public class ShoppingListActivity extends AppCompatActivity {
 
 
     EditText eingabeText;
@@ -41,11 +39,11 @@ public class ShoppingList extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.b_inventory) {
-                    startActivity(new Intent(getApplicationContext(), InventoryList.class));
+                    startActivity(new Intent(getApplicationContext(), InventoryListActivity.class));
                     overridePendingTransition(0,0);
                     return true;
                 } else if (item.getItemId() == R.id.b_favorites){
-                    startActivity(new Intent(getApplicationContext(), Favorites.class));
+                    startActivity(new Intent(getApplicationContext(), FavoritesActivity.class));
                     overridePendingTransition(0,0);
                     return true;
                 } else
@@ -62,7 +60,7 @@ public class ShoppingList extends AppCompatActivity {
         adapterShopping = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, inventar);
         shoppingListView.setAdapter(adapterShopping);
 
-        Intent intent = new Intent(this, InventoryList.class);
+        Intent intent = new Intent(this, InventoryListActivity.class);
         intent.putStringArrayListExtra("inventar", inventar);
 
         addButton.setOnClickListener(new OnClickListener() {
