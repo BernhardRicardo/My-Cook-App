@@ -1,5 +1,6 @@
 package com.example.mycook;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -9,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -64,7 +66,7 @@ public class RecommendedActivity extends AppCompatActivity implements RecyclerVi
         // Change this with ingredients from inventory later
         searchRecipe("chicken");
 
-/*
+
         bottomNavigationView = findViewById(R.id.b_favorites);
         bottomNavigationView.setSelectedItemId(R.id.b_favorites);
         //Function deprecated--> maybe switch in future
@@ -73,15 +75,15 @@ public class RecommendedActivity extends AppCompatActivity implements RecyclerVi
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 if (item.getItemId() == R.id.b_inventory) {
-                    startActivity(new Intent(getApplicationContext(), InventoryList.class));
+                    startActivity(new Intent(getApplicationContext(), InventoryListActivity.class));
                     overridePendingTransition(0, 0);
                     return true;
                 } else if (item.getItemId() == R.id.b_shopping) {
-                    startActivity(new Intent(getApplicationContext(), ShoppingList.class));
+                    startActivity(new Intent(getApplicationContext(), ShoppingListActivity.class));
                     overridePendingTransition(0, 0);
                     return true;
                 } else if (item.getItemId() == R.id.b_favorites) {
-                    startActivity(new Intent(getApplicationContext(), Favorites.class));
+                    startActivity(new Intent(getApplicationContext(), FavoritesActivity.class));
                     overridePendingTransition(0, 0);
                     return true;
                 } else
@@ -89,7 +91,7 @@ public class RecommendedActivity extends AppCompatActivity implements RecyclerVi
                 }
             }
         );
-        */
+
     }
 
     @Override
