@@ -9,12 +9,16 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
+import java.util.List;
+
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>{
     private final RecyclerViewInterface recyclerViewInterface;
-    int []arr;
+    List<Food>arr;
 
-    public RecyclerViewAdapter(int[] arr, RecyclerViewInterface recyclerViewInterface) {
-        this.arr = arr;
+    public RecyclerViewAdapter(List<Food> foodList, RecyclerViewInterface recyclerViewInterface) {
+        this.arr = foodList;
         this.recyclerViewInterface=recyclerViewInterface;
     }
 
@@ -28,13 +32,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.imageView.setImageResource(arr[position]);
-        holder.textView.setText("Image: " + position);
+        Glide.with(holder.itemView.getContext()).load(arr.get(position).getImage()).into(holder.imageView);
+        holder.textView.setText(arr.get(position).getTitle());
     }
 
     @Override
     public int getItemCount() {
-        return arr.length;
+        return arr.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder{

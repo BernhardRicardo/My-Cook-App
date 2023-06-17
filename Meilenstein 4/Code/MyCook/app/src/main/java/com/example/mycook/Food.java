@@ -2,7 +2,7 @@ package com.example.mycook;
 
 public class Food {
 
-    public Food(int id, String title, int image) {
+    public Food(int id, String title, String image) {
         this.id = id;
         this.title = title;
         this.image = image;
@@ -24,15 +24,15 @@ public class Food {
         this.title = title;
     }
 
-    public int getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(String image) {
         this.image = image;
     }
 
     private int id;
     private String title;
-    private int image;
+    private String image;
 }

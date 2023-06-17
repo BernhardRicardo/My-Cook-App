@@ -17,13 +17,12 @@
         app:shapeAppearanceOverlay="@style/roundImageView"
         android:src="@drawable/carbonara"/>
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:text="Title"
         android:layout_marginLeft="30dp"
-        android:gravity="center"
-        android:textSize="25dp"
         android:textStyle="bold"
+        android:layout_gravity="left"
         android:id="@+id/textView"/>
 
 </LinearLayout>

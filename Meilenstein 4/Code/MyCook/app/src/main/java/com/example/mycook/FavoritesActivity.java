@@ -29,7 +29,7 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
-
+/*
         recyclerView =  findViewById(R.id.recyclerView);
         layoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(layoutManager);
@@ -38,7 +38,7 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
         favRecyclerViewAdapter = new RecyclerViewAdapter(arr, this);
 
         recyclerView.setAdapter(favRecyclerViewAdapter);
-        recyclerView.setHasFixedSize(true);
+        recyclerView.setHasFixedSize(true);*/
         //Menu-Bar
         bottomNavigationView = findViewById(R.id.b_favorites);
         bottomNavigationView.setSelectedItemId(R.id.b_favorites);
