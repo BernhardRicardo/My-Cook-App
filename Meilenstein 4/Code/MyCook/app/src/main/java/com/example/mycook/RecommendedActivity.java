@@ -5,10 +5,12 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -97,6 +99,10 @@ public class RecommendedActivity extends AppCompatActivity implements RecyclerVi
     }
 
     private void searchRecipe(String ingredient){
+        editTextSearch.clearFocus();
+        InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        in.hideSoftInputFromWindow(editTextSearch.getWindowToken(), 0);
+
         List<Food> arrFood = new ArrayList<>();
 
         OkHttpClient client = new OkHttpClient();
