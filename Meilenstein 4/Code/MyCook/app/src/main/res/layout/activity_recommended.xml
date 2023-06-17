@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RecommendedActivity"
-    android:background="#5C808080">
+    android:background="#FFFFFF">
 
     <!--
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -32,12 +32,28 @@
         android:textStyle="bold"
         android:textColor="@color/black" />
 
+    <EditText
+        android:id="@+id/searchRecipe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/search_view_bg"
+        android:padding="10dp"
+        android:hint="Search for recipes"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:maxLines="1"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/recyclerView"
-        android:layout_below="@+id/textView2" />
+        android:layout_below="@+id/searchRecipe" />
 
 
 </RelativeLayout>
