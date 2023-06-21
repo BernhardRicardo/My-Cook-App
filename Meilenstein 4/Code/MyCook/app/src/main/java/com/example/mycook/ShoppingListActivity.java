@@ -19,6 +19,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+
 import android.view.View.OnClickListener;
 
 public class ShoppingListActivity extends AppCompatActivity {
@@ -97,16 +99,26 @@ public class ShoppingListActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String selectedItem = "";
-                for (int i = 0; i < shoppingListView.getCount(); i++) {
-                    if (shoppingListView.isItemChecked(i)) {
-                        selectedItem += shoppingListView.getItemAtPosition(i) + "\n";
+                List<Integer> checkedIndices = new ArrayList<>(); // Store checked item indices
 
-                        //Deletes items. wich have been added to the inventory
-                        shoppingItems.remove(i);
-                        adapterShopping.notifyDataSetChanged();
+                // Iterate over items in reverse order
+                for (int i = shoppingListView.getCount() - 1; i >= 0; i--) {
+                    if (shoppingListView.isItemChecked(i)) {
+                        shoppingListView.setItemChecked(i,false);
+                        selectedItem += shoppingListView.getItemAtPosition(i) + "\n";
+                        checkedIndices.add(i);
                     }
                 }
-                //writes into inventory file
+
+                // Remove items from shoppingItems list
+                for (int index : checkedIndices) {
+                    shoppingItems.remove(index);
+                }
+
+                // Notify the adapter to update the view
+                adapterShopping.notifyDataSetChanged();
+
+                // Rest of the code to write the selected items to the inventory file
                 FileOutputStream fos = null;
                 String text = selectedItem.toString();
 
@@ -120,13 +132,11 @@ public class ShoppingListActivity extends AppCompatActivity {
                 } finally {
                     if (fos != null) {
                         try {
-                            //close file
                             fos.close();
                         } catch (IOException e) {
                             throw new RuntimeException(e);
                         }
                     }
-
                 }
             }
         });
