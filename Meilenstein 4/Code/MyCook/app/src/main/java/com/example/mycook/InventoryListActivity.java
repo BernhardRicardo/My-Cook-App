@@ -115,14 +115,11 @@ public class InventoryListActivity extends AppCompatActivity {
         }
        invList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView parent, View view, int position, long id) {
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 // Entferne das Element aus der Liste
-
                 inventarArrayList.remove(position); // gehört zu ArrayList
-
                 //Aktualisiere Adapter
                 invAdapter.notifyDataSetChanged();
-
                 return true;
             }
         });
