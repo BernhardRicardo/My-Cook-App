@@ -29,7 +29,7 @@ public class ShoppingListActivity extends AppCompatActivity {
     Button addButton;
     ListView shoppingListView;
     ArrayAdapter<String> adapterShopping;
-    ArrayList<String> shoppingItems;
+    ArrayList<String> shoppingItems = new ArrayList<String>();
     BottomNavigationView bottomNavigationView;
 
     @Override
@@ -62,12 +62,11 @@ public class ShoppingListActivity extends AppCompatActivity {
         addButton = findViewById(R.id.buttonAddShoppinglist);
         shoppingListView = findViewById(R.id.listviewShoppinglist);
         addInventoryButton = findViewById(R.id.addItems);
-        shoppingItems = new ArrayList<>();
         adapterShopping = new ArrayAdapter<>(this, android.R.layout.simple_list_item_multiple_choice, shoppingItems);
         shoppingListView.setAdapter(adapterShopping);
 
-        Intent intent = new Intent(this, InventoryListActivity.class);
-        intent.putStringArrayListExtra("inventar", shoppingItems);
+       // Intent intent = new Intent(this, InventoryListActivity.class);
+        //intent.putStringArrayListExtra("inventar", shoppingItems);
 
         addButton.setOnClickListener(new OnClickListener() {
             @Override
