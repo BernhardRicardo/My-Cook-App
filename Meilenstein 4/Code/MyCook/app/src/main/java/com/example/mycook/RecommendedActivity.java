@@ -27,6 +27,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.SimpleTimeZone;
 
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
@@ -41,7 +42,9 @@ public class RecommendedActivity extends AppCompatActivity implements RecyclerVi
     private EditText editTextSearch;
     RecyclerView.LayoutManager layoutManager;
     RecyclerViewAdapter recyclerViewAdapter;
+    List<Food> arrFood = new ArrayList<>();
 
+    private String apiKey = "";
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -97,15 +100,90 @@ public class RecommendedActivity extends AppCompatActivity implements RecyclerVi
     @Override
     public void onItemClick(int position) {
         Intent intent = new Intent(this, RecipeActivity.class);
-        startActivity(intent);
+        searchRecipeInfo(arrFood.get(position).getId(), intent);
+
     }
 
+    private void searchRecipeInfo(int id, Intent intent){
+        OkHttpClient client = new OkHttpClient();
+
+        HttpUrl.Builder urlBuilder = HttpUrl.parse("https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/" + id + "/information")
+                .newBuilder();
+        urlBuilder.addQueryParameter("includeNutrition", "false");
+
+        Request request = new Request.Builder()
+                .url(urlBuilder.build().toString())
+                .get()
+                .addHeader("X-RapidAPI-Key", apiKey)
+                .addHeader("X-RapidAPI-Host", "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com")
+                .build();
+
+        client.newCall(request).enqueue(new okhttp3.Callback() {
+            @Override
+            public void onFailure(okhttp3.Call call, IOException e) {
+                //textViewResult.setText(e.getMessage());
+            }
+
+            @Override
+            public void onResponse(okhttp3.Call call, Response response) throws IOException {
+
+                if (response.isSuccessful()) {
+                    final String myResponse = response.body().string();
+
+                    try {
+                        JSONObject json = new JSONObject(myResponse);
+                        String title = json.getString("title");
+                        String image = json.getString("image");
+                        int id = json.getInt("id");
+
+                        ArrayList<String> ingredients = new ArrayList<>();
+                        JSONArray jsonIngredients = json.getJSONArray("extendedIngredients");
+                        for(int i = 0; i < jsonIngredients.length(); i++){
+                            JSONObject jsonIngredient = jsonIngredients.getJSONObject(i);
+                            int amount = jsonIngredient.getInt("amount");
+                            String strAmount = Integer.toString(amount);
+                            String ingredient = strAmount + " " + jsonIngredient.getString("unit") + " " + jsonIngredient.getString("name");
+                            ingredients.add(ingredient);
+                        }
+
+                        ArrayList<String> instructions = new ArrayList<>();
+                        JSONArray jsonInstructions = json.getJSONArray("analyzedInstructions");
+                        for(int i = 0; i < jsonInstructions.length(); i++){
+                            JSONObject jsonInstruction = jsonInstructions.getJSONObject(i);
+                            JSONArray jsonSteps = jsonInstruction.getJSONArray("steps");
+                            for(int j = 0; j < jsonSteps.length(); j++){
+                                JSONObject jsonStep = jsonSteps.getJSONObject(j);
+                                String step = jsonStep.getString("step");
+                                instructions.add(step);
+                            }
+                        }
+
+                        RecommendedActivity.this.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                intent.putExtra("title", title);
+                                intent.putExtra("image", image);
+                                intent.putExtra("id", id);
+                                intent.putExtra("ingredients", ingredients);
+                                intent.putExtra("instructions", instructions);
+                                startActivity(intent);
+                            }
+                        });
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            }
+        });
+    }
     private void searchRecipe(String ingredient){
         editTextSearch.clearFocus();
         InputMethodManager in = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         in.hideSoftInputFromWindow(editTextSearch.getWindowToken(), 0);
 
-        List<Food> arrFood = new ArrayList<>();
+        arrFood.clear();
 
         OkHttpClient client = new OkHttpClient();
 
@@ -119,7 +197,7 @@ public class RecommendedActivity extends AppCompatActivity implements RecyclerVi
         Request request = new Request.Builder()
                 .url(urlBuilder.build().toString())
                 .get()
-                .addHeader("X-RapidAPI-Key", "76d8c40b12msh5d1ad7c60215853p1e3045jsn8e82d8f51cb0")
+                .addHeader("X-RapidAPI-Key", apiKey)
                 .addHeader("X-RapidAPI-Host", "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com")
                 .build();
 
