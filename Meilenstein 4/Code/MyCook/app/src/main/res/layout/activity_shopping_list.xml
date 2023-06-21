@@ -44,7 +44,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/shoppingListHeader"
-        android:layout_above="@id/eingabefeldShoppinglist"/>
+        android:layout_above="@id/eingabefeldShoppinglist"
+        android:choiceMode="multipleChoice"/>
 
     <EditText
         android:id="@+id/eingabefeldShoppinglist"
@@ -69,6 +70,7 @@
         android:layout_height="wrap_content"
         android:text="Add Items zu Inventory"
         android:layout_marginBottom="19dp"
-        android:layout_above="@id/b_shopping" />
+        android:layout_above="@id/b_shopping"
+        />
 
 </RelativeLayout>
