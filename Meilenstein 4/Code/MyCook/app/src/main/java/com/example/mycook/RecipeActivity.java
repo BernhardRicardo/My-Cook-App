@@ -71,13 +71,10 @@ public class RecipeActivity extends AppCompatActivity {
                 btnFav.setBackgroundResource(R.drawable.ic_favorite_star);
                 cr.deleteRecipe(id);
                 cr.saveData();
-                cr.loadData();
-
             } else {
                 btnFav.setBackgroundResource(R.drawable.ic_favorite_star_gold);
                 cr.localRecipeList.add(new RecipeLocal(id, title, ingredients, instructions, image, intImage));
                 cr.saveData();
-                cr.loadData();
             }
         });
 

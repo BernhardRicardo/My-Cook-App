@@ -31,8 +31,17 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
     RecyclerViewAdapter favRecyclerViewAdapter;
 
     public List<Food> arrFood = new ArrayList<>();
+
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        overridePendingTransition(0, 0);
+        startActivity(getIntent());
+        overridePendingTransition(0, 0);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
         cr.loadData();
@@ -104,6 +113,21 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
         startActivity(intent);
     }
 
+    public void refreshRecyclerView(){
+        cr.loadData();
+        for(int i = 0; i < cr.localRecipeList.size(); i++){
+            int id = cr.localRecipeList.get(i).getId();
+            String title = cr.localRecipeList.get(i).getTitle();
+            String strImage = cr.localRecipeList.get(i).getStringimage();
+            int intImage = cr.localRecipeList.get(i).getIntimage();
+            if(intImage == 0){
+                arrFood.add(new Food(id, title, strImage));
+            }else{
+                arrFood.add(new Food(id, title, intImage));
+            }
+        }
+        favRecyclerViewAdapter.notifyDataSetChanged();
+    }
 }
 
 
