@@ -25,6 +25,7 @@ public class RecipeActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        cr.loadData();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe);
 
@@ -75,6 +76,10 @@ public class RecipeActivity extends AppCompatActivity {
                 btnFav.setBackgroundResource(R.drawable.ic_favorite_star_gold);
                 cr.localRecipeList.add(new RecipeLocal(id, title, ingredients, instructions, image, intImage));
                 cr.saveData();
+                for(int i = 0; i < cr.localRecipeList.size(); i++){
+                    System.out.println(cr.localRecipeList.size()+"AAAAAAAAAAAAAAAAA");
+                    System.out.println(cr.localRecipeList.get(i).getTitle());
+                }
             }
         });
 

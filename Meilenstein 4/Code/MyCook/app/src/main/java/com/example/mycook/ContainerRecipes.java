@@ -18,7 +18,7 @@ public class ContainerRecipes {
     File f = new File(JSON_FILE_PATH);
 
 
-    public ArrayList<RecipeLocal> localRecipeList = new ArrayList<RecipeLocal>();
+    public ArrayList<RecipeLocal> localRecipeList = new ArrayList<>();
 
     public ContainerRecipes() {
 
