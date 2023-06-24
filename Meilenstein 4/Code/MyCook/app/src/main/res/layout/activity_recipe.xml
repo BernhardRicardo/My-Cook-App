@@ -24,6 +24,7 @@
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
             android:id="@+id/recipe_title"/>
 
         <androidx.appcompat.widget.AppCompatButton
