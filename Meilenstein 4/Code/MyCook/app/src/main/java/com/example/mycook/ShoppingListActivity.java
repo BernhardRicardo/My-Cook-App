@@ -42,6 +42,14 @@ public class ShoppingListActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
 
     @Override
+    public void onRestart() {
+        super.onRestart();
+        overridePendingTransition(0, 0);
+        startActivity(getIntent());
+        overridePendingTransition(0, 0);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_list);

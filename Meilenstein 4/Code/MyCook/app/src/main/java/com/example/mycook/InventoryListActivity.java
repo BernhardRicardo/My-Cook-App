@@ -36,6 +36,15 @@ public class InventoryListActivity extends AppCompatActivity {
     //ArrayList<String> inventar = getIntent().getStringArrayListExtra("inventar");
 
     BottomNavigationView bottomNavigationView;
+
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        overridePendingTransition(0, 0);
+        startActivity(getIntent());
+        overridePendingTransition(0, 0);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
