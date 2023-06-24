@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class FavoritesActivity extends AppCompatActivity implements RecyclerViewInterface {
@@ -29,31 +30,35 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
     RecyclerView.LayoutManager layoutManager;
     RecyclerViewAdapter favRecyclerViewAdapter;
 
-    int []arr = {R.drawable.carbonara, R.drawable.carbonara, R.drawable.carbonara, R.drawable.carbonara};
+    public List<Food> arrFood = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
+        cr.loadData();
 
-        ArrayList<String> tmp = new ArrayList<String>();
-        ArrayList<String> tmp1 = new ArrayList<String>();
+        for(int i = 0; i < cr.localRecipeList.size(); i++){
+            int id = cr.localRecipeList.get(i).getId();
+            String title = cr.localRecipeList.get(i).getTitle();
+            String strImage = cr.localRecipeList.get(i).getStringimage();
+            int intImage = cr.localRecipeList.get(i).getIntimage();
+            if(intImage == 0){
+                arrFood.add(new Food(id, title, strImage));
+            }else{
+                arrFood.add(new Food(id, title, intImage));
+            }
+        }
 
 
-        //RecipeLocal rl = new RecipeLocal(2, "TEST2", tmp, tmp1, "TESTIMAGE2", 2, 2);
-        //cr.localRecipeList.add(rl);
-       // cr.saveData();
-        //cr.loadData();
-
-/*
         recyclerView =  findViewById(R.id.recyclerView);
         layoutManager = new GridLayoutManager(this, 2);
         recyclerView.setLayoutManager(layoutManager);
 
         // Pass in an array of images to display
-        favRecyclerViewAdapter = new RecyclerViewAdapter(arr, this);
+        favRecyclerViewAdapter = new RecyclerViewAdapter(arrFood, this);
 
         recyclerView.setAdapter(favRecyclerViewAdapter);
-        recyclerView.setHasFixedSize(true);*/
+        recyclerView.setHasFixedSize(true);
         //Menu-Bar
         bottomNavigationView = findViewById(R.id.b_favorites);
         bottomNavigationView.setSelectedItemId(R.id.b_favorites);
@@ -87,8 +92,18 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
 
     @Override
     public void onItemClick(int position) {
-        
+        Intent intent = new Intent(this, RecipeActivity.class);
+        intent.putExtra("id", cr.localRecipeList.get(position).getId());
+        intent.putExtra("title", cr.localRecipeList.get(position).getTitle());
+        intent.putExtra("ingredients", cr.localRecipeList.get(position).getIngredients());
+        intent.putExtra("instructions", cr.localRecipeList.get(position).getInstructions());
+        intent.putExtra("image", cr.localRecipeList.get(position).getStringimage());
+        intent.putExtra("intImage", cr.localRecipeList.get(position).getIntimage());
+        intent.putExtra("isFavorite", true);
+        intent.putExtra("activity", "FavoritesActivity");
+        startActivity(intent);
     }
+
 }
 
 

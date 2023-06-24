@@ -6,6 +6,14 @@ public class Food {
         this.id = id;
         this.title = title;
         this.image = image;
+        this.intImage = 0;
+    }
+
+    public Food(int id, String title, int image) {
+        this.id = id;
+        this.title = title;
+        this.intImage = image;
+        this.image = "";
     }
 
     public int getId() {
@@ -32,7 +40,17 @@ public class Food {
         this.image = image;
     }
 
+    public int getIntImage() {
+        return intImage;
+    }
+
+    public void setIntImage(int intImage) {
+        this.intImage = intImage;
+    }
+
     private int id;
     private String title;
     private String image;
+
+    private int intImage;
 }
