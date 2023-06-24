@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".RecipeActivity"
     android:id="@+id/recipe_scroll_view"
-    android:fillViewport="true"
     android:background="#FFFFFF">
 
     <RelativeLayout
+        android:id="@+id/recipe_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -20,16 +20,19 @@
             android:textSize="30sp"
             android:textStyle="bold"
             android:layout_marginTop="20dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
             android:layout_centerHorizontal="true"
+            android:gravity="center_horizontal"
             android:id="@+id/recipe_title"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="*"
-            android:textSize="30sp"
-            android:textStyle="bold"
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
+            android:layout_marginRight="30dp"
+            android:background="@drawable/ic_favorite_star_gold"
             android:layout_alignParentRight="true"
             android:id="@+id/recipe_favourite_button"/>
 
@@ -54,7 +57,8 @@
             android:layout_marginLeft="20dp"
             android:id="@+id/ingredients_title"/>
 
-        <ListView
+
+        <com.example.mycook.NonScrollListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:isScrollContainer="false"
@@ -75,15 +79,23 @@
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:id="@+id/steps_title"/>
-
-        <ListView
+        
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/steps_title"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:id="@+id/instructions_list_view"/>
+            android:layout_below="@id/steps_title">
+
+
+            <com.example.mycook.NonScrollListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:id="@+id/instructions_list_view"/>
+
+        </RelativeLayout>
+
 
     </RelativeLayout>
 

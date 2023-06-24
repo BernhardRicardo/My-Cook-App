@@ -28,6 +28,8 @@ import android.widget.AdapterView;
 import com.example.mycook.databinding.ActivityNewRecipeBinding;
 import com.google.gson.Gson;
 
+
+
 public class newRecipeActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;

@@ -36,6 +36,15 @@ public class InventoryListActivity extends AppCompatActivity {
     //ArrayList<String> inventar = getIntent().getStringArrayListExtra("inventar");
 
     BottomNavigationView bottomNavigationView;
+
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        overridePendingTransition(0, 0);
+        startActivity(getIntent());
+        overridePendingTransition(0, 0);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,10 +82,10 @@ public class InventoryListActivity extends AppCompatActivity {
         inventarAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, inventarArrayList);
         invList.setAdapter(inventarAdapter);*/
 
-//Checks if File exits
+        //Checks if File exits
         File f = new File(FILE_PATH);
-        //Opens file if existing
         if (f.exists() == true) {
+            //Opens file if existing
             FileInputStream fis = null;
             try {
                 fis = openFileInput(FILE_NAME);
@@ -124,7 +133,7 @@ public class InventoryListActivity extends AppCompatActivity {
             }
         });
     }
-    //Updates Inventory file after deleting stuff
+    //Updates Inventory file if stuff was deleted, after swapping activity
     public void updateInventoryData(){
         String selectedItem = "";
         for (int i = 0; i < invList.getCount(); i++) {

@@ -15,16 +15,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
 import android.view.View.OnClickListener;
+import android.widget.Toast;
 
 public class ShoppingListActivity extends AppCompatActivity {
 
+    private static String SHOPPING_LIST_FILE_PATH = "/data/data/com.example.mycook/files/shoppingList.txt";
+    private static String SHOPPING_LIST_FILE = "shoppingList.txt";
     private static String FILE_NAME = "testInventory.txt";
     EditText eingabeText;
     Button addInventoryButton;
@@ -35,10 +42,18 @@ public class ShoppingListActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
 
     @Override
+    public void onRestart() {
+        super.onRestart();
+        overridePendingTransition(0, 0);
+        startActivity(getIntent());
+        overridePendingTransition(0, 0);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shopping_list);
-
+        loadShoppingList();
         //Menu-Bar
         bottomNavigationView = findViewById(R.id.b_shopping);
         bottomNavigationView.setSelectedItemId(R.id.b_shopping);
@@ -47,10 +62,12 @@ public class ShoppingListActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 if (item.getItemId() == R.id.b_inventory) {
+                    saveShoppingListData();
                     startActivity(new Intent(getApplicationContext(), InventoryListActivity.class));
                     overridePendingTransition(0, 0);
                     return true;
                 } else if (item.getItemId() == R.id.b_favorites) {
+                    saveShoppingListData();
                     startActivity(new Intent(getApplicationContext(), FavoritesActivity.class));
                     overridePendingTransition(0, 0);
                     return true;
@@ -141,5 +158,77 @@ public class ShoppingListActivity extends AppCompatActivity {
             }
         });
     }
+    public void loadShoppingList() {
+        File f = new File(SHOPPING_LIST_FILE_PATH);
+        if (f.exists() == true) {
+            //Opens file if existing
+            FileInputStream fis = null;
+            try {
+                fis = openFileInput(SHOPPING_LIST_FILE);
+                InputStreamReader isr = new InputStreamReader(fis);
+
+                BufferedReader br = new BufferedReader(isr);
+                StringBuilder sb = new StringBuilder();
+                String text;
+
+                while ((text = br.readLine()) != null) {
+                    shoppingItems.add(text);
+                }
+
+
+            } catch (FileNotFoundException e) {
+                throw new RuntimeException("FILE NOT FOUND");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } finally {
+                try {
+                    fis.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            shoppingListView = findViewById(R.id.listviewShoppinglist);
+            adapterShopping = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, shoppingItems);
+            shoppingListView.setAdapter(adapterShopping);
+        }
+        else {
+            //No Inventory file
+            //Toast.makeText(this, "Nothing in your inventory!", Toast.LENGTH_LONG).show();
+            shoppingListView = findViewById(R.id.listviewShoppinglist);
+            adapterShopping = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, shoppingItems);
+            shoppingListView.setAdapter(adapterShopping);
+        }
+    }
+
+    public void saveShoppingListData(){
+        String selectedItem = "";
+        for (int i = 0; i < shoppingListView.getCount(); i++) {
+            selectedItem += shoppingListView.getItemAtPosition(i) + "\n";
+
+        }
+        //writes into inventory file
+        FileOutputStream fos = null;
+        String text = selectedItem.toString();
+
+        try {
+            fos = openFileOutput(SHOPPING_LIST_FILE, MODE_PRIVATE);
+            fos.write(text.getBytes());
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } finally {
+            if (fos != null) {
+                try {
+                    //close file
+                    fos.close();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+        }
+    }
 }
+
 
