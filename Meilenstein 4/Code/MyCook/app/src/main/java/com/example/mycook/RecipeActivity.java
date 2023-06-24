@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -63,9 +65,11 @@ public class RecipeActivity extends AppCompatActivity {
         ArrayAdapter<String> ingredientsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, ingredients);
         lvIngredients.setAdapter(ingredientsAdapter);
 
+
         ListView lvInstructions = findViewById(R.id.instructions_list_view);
         ArrayAdapter<String> instructionsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, instructions);
         lvInstructions.setAdapter(instructionsAdapter);
+
 
         btnFav.setOnClickListener(v -> {
             if(isFavorite) {
