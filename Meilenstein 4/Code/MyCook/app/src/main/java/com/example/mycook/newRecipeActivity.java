@@ -16,6 +16,8 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.mycook.databinding.ActivityNewRecipeBinding;
 
+
+
 public class newRecipeActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
