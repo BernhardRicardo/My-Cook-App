@@ -32,8 +32,8 @@ public class newRecipeActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityNewRecipeBinding binding;
-    public ArrayList<String> stepsList;
-    public ArrayList<String> ingridientsList;
+    public ArrayList<String> stepsList = new ArrayList<String>();
+    public ArrayList<String> ingridientsList = new ArrayList<String>();
     public String recipeTitel;
 
     protected void onCreate(Bundle savedInstanceState) {
