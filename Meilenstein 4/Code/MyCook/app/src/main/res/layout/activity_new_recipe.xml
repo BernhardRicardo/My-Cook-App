@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
+        <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Recipe"
@@ -55,7 +55,7 @@
             android:id="@+id/ingredients_list_view"/>
 
         <EditText
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/ingredientsEdittext"
             android:layout_below="@id/ingredients_list_view"
@@ -67,7 +67,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/buttonAddingrediets"
-            android:layout_toRightOf="@+id/ingredientsEdittext"/>
+            android:text="+"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_toRightOf="@+id/ingredientsEdittext"
+            android:layout_below="@id/ingredients_list_view"
+            android:layout_marginRight="20dp"/>
 
 
         <TextView
@@ -93,7 +98,7 @@
             android:id="@+id/instructions_list_view"/>
 
         <EditText
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/stepsEdittext"
             android:layout_below="@+id/instructions_list_view"
@@ -105,7 +110,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/buttonAddSteps"
-            android:layout_toRightOf="@+id/stepsEdittext"/>
+            android:text="+"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_below="@+id/instructions_list_view"
+            android:layout_toRightOf="@+id/stepsEdittext"
+            android:layout_marginRight="20dp"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/newRecipeDone"
+            android:text="Done"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_below="@+id/instructions_list_view"
+            android:layout_toRightOf="@+id/buttonAddSteps"
+            />
+
 
     </RelativeLayout>
 

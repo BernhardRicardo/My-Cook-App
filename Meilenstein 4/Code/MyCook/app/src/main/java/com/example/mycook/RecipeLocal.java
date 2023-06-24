@@ -11,7 +11,10 @@ public class RecipeLocal {
         this.instructions = instructions;
         this.stringimage = stringimage;
         this.intimage = intimage;
-        this.favoriteArraylenght = size;
+        this.size = size;
+        //this.sizeIngredients = sizeIngredients;
+        //this.sizeInstructions = sizeInstructions;
+
     }
 
     public int getId() {
@@ -68,5 +71,8 @@ public class RecipeLocal {
     private ArrayList<String> instructions;
     private String stringimage;
     private int intimage;
-    private int favoriteArraylenght;
+    private int size;
+    private int sizeIngredients;
+
+    private int sizeInstructions;
 }

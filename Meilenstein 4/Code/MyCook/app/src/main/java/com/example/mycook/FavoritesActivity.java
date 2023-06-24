@@ -15,6 +15,7 @@ import android.content.Intent;
 import android.view.MenuItem;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 
 public class FavoritesActivity extends AppCompatActivity implements RecyclerViewInterface {
@@ -23,6 +24,7 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     RecyclerViewAdapter favRecyclerViewAdapter;
+    Button AddRecipeButton;
 
     int []arr = {R.drawable.carbonara, R.drawable.carbonara, R.drawable.carbonara, R.drawable.carbonara};
     @Override
@@ -39,6 +41,8 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
 
         recyclerView.setAdapter(favRecyclerViewAdapter);
         recyclerView.setHasFixedSize(true);*/
+
+
         //Menu-Bar
         bottomNavigationView = findViewById(R.id.b_favorites);
         bottomNavigationView.setSelectedItemId(R.id.b_favorites);
@@ -73,6 +77,10 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
     @Override
     public void onItemClick(int position) {
         
+    }
+
+    public void addRecipteButton(View view) {
+        startActivity(new Intent(getApplicationContext(), newRecipeActivity.class));
     }
 }
 
