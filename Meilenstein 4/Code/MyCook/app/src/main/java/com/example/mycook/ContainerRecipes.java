@@ -44,7 +44,6 @@ public class ContainerRecipes {
                 }.getType();
                 Gson gson = new Gson();
                 localRecipeList = gson.fromJson(fileReader, type);
-                System.out.println(localRecipeList.get(0).getTitle());
 
             } catch (FileNotFoundException e) {
                 throw new RuntimeException(e);
@@ -52,6 +51,14 @@ public class ContainerRecipes {
 
         } else {
             //Toast.makeText(this, "Nothing happened", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public void deleteRecipe(int id){
+        for(int i = 0; i < localRecipeList.size(); i++){
+            if(localRecipeList.get(i).getId() == id){
+                localRecipeList.remove(i);
+            }
         }
     }
 }
