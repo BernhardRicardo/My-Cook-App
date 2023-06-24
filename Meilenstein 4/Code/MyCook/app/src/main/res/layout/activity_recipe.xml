@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".RecipeActivity"
     android:id="@+id/recipe_scroll_view"
-    android:background="#5C808080">
+    android:fillViewport="true"
+    android:background="#FFFFFF">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -33,12 +34,14 @@
             android:id="@+id/recipe_favourite_button"/>
 
         <ImageView
+            android:id="@+id/recipe_image"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/recipe_title"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/carbonara"
-            android:id="@+id/recipe_image"/>
+            android:layout_marginTop="4dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:src="@drawable/carbonara" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -51,34 +54,16 @@
             android:layout_marginLeft="20dp"
             android:id="@+id/ingredients_title"/>
 
-        <LinearLayout
+        <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:weightSum="100"
-            android:id="@+id/ingredients_layout"
+            android:isScrollContainer="false"
             android:layout_below="@+id/ingredients_title"
             android:layout_marginTop="20dp"
-            android:orientation="horizontal">
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:id="@+id/ingredients_list_view"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1. Egg"
-                android:textSize="20sp"
-                android:layout_weight="50"
-                android:layout_marginLeft="20dp"
-                android:id="@+id/ingredient_1_number"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2. Cheese"
-                android:textSize="20sp"
-                android:layout_weight="50"
-                android:layout_marginLeft="20dp"
-                android:id="@+id/ingredient_1_name"/>
-
-        </LinearLayout>
 
         <TextView
             android:layout_width="wrap_content"
@@ -86,12 +71,19 @@
             android:text="Steps"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_below="@+id/ingredients_layout"
+            android:layout_below="@+id/ingredients_list_view"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:id="@+id/steps_title"/>
 
-
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/steps_title"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:id="@+id/instructions_list_view"/>
 
     </RelativeLayout>
 
