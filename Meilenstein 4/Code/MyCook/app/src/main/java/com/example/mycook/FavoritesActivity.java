@@ -16,8 +16,13 @@ import android.view.MenuItem;
 import android.os.Bundle;
 import android.view.View;
 
+import java.util.ArrayList;
+
 
 public class FavoritesActivity extends AppCompatActivity implements RecyclerViewInterface {
+
+    ContainerRecipes cr = new ContainerRecipes();
+
 
     BottomNavigationView bottomNavigationView;
     private RecyclerView recyclerView;
@@ -29,6 +34,16 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
+
+        ArrayList<String> tmp = new ArrayList<String>();
+        ArrayList<String> tmp1 = new ArrayList<String>();
+
+
+        //RecipeLocal rl = new RecipeLocal(2, "TEST2", tmp, tmp1, "TESTIMAGE2", 2, 2);
+        //cr.localRecipeList.add(rl);
+       // cr.saveData();
+        //cr.loadData();
+
 /*
         recyclerView =  findViewById(R.id.recyclerView);
         layoutManager = new GridLayoutManager(this, 2);
