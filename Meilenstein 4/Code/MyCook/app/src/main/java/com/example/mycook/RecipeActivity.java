@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.ViewGroup;
@@ -24,9 +25,18 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 
 public class RecipeActivity extends AppCompatActivity {
+    public int getIntImage() {
+        return intImage;
+    }
 
+    public void setIntImage(int intImage) {
+        this.intImage = intImage;
+    }
+
+    int intImage;
     BottomNavigationView bottomNavigationView;
     ContainerRecipes cr = new ContainerRecipes();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +59,9 @@ public class RecipeActivity extends AppCompatActivity {
         ArrayList<String> ingredients = getIntent().getStringArrayListExtra("ingredients");
         ArrayList<String> instructions = getIntent().getStringArrayListExtra("instructions");
         String image = getIntent().getStringExtra("image");
-        int intImage = getIntent().getIntExtra("intImage", 0);
-
+        intImage= getIntent().getIntExtra("intImage", 0);
+        String uri = "@drawable/mycooksqr";
+        int imageResource = getResources().getIdentifier(uri, null, getPackageName());
         TextView tvTitle = findViewById(R.id.recipe_title);
         ImageView ivImage = findViewById(R.id.recipe_image);
 
@@ -60,7 +71,31 @@ public class RecipeActivity extends AppCompatActivity {
             ivImage.setImageResource(intImage);
 
         } else {
-            Glide.with(this).load(image).into(ivImage);
+            //setIntImage(noImage);
+            if (image != null) {
+                Glide.with(this).load(image).into(ivImage);
+            }
+            else {
+                ivImage.setImageResource(imageResource);
+                int desiredWidthInDp = 400; // Die gewünschte Breite in dp
+                int desiredHeightInDp = 400; // Die gewünschte Höhe in dp
+                // Konvertiere die Breite und Höhe von dp in Pixel
+                float density = ivImage.getContext().getResources().getDisplayMetrics().density;
+                int desiredWidthInPx = (int) (desiredWidthInDp * density);
+                int desiredHeightInPx = (int) (desiredHeightInDp * density);
+
+                ViewGroup.LayoutParams layoutParams = ivImage.getLayoutParams();
+                layoutParams.width = desiredWidthInPx;
+                layoutParams.height = desiredHeightInPx;
+                ivImage.setLayoutParams(layoutParams);
+
+                // Platziere das ImageView mit Abstand zum oberen Rand und zentriere es horizontal
+                RelativeLayout.LayoutParams imageParams = new RelativeLayout.LayoutParams(desiredWidthInPx, desiredHeightInPx);
+                imageParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+                imageParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
+                imageParams.topMargin = 100; // Abstand zum oberen Rand in Pixel, hier 32 Pixel als Beispiel
+                ivImage.setLayoutParams(imageParams);
+            }
         }
 
         ListView lvIngredients = findViewById(R.id.ingredients_list_view);
@@ -79,6 +114,7 @@ public class RecipeActivity extends AppCompatActivity {
                 cr.deleteRecipe(id);
                 cr.saveData();
             } else {
+
                 btnFav.setBackgroundResource(R.drawable.ic_favorite_star_gold);
                 cr.localRecipeList.add(new RecipeLocal(id, title, ingredients, instructions, image, intImage));
                 cr.saveData();
