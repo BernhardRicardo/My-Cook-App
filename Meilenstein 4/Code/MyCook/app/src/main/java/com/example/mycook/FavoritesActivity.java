@@ -15,6 +15,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.view.MenuItem;
 import android.os.Bundle;
 import android.view.View;
@@ -27,7 +28,7 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
 
     ContainerRecipes cr = new ContainerRecipes();
 
-
+    private int imageResource;
     BottomNavigationView bottomNavigationView;
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
@@ -55,6 +56,11 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
 
         cr.localRecipeList.add(rl);
         cr.saveData();*/
+
+        String uri = "@drawable/mycooksqr";
+
+        imageResource = getResources().getIdentifier(uri, null, getPackageName());
+        Drawable res = getResources().getDrawable(imageResource);
         cr.loadData();
 
         for(int i = 0; i < cr.localRecipeList.size(); i++){
@@ -63,7 +69,7 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
             String strImage = cr.localRecipeList.get(i).getStringimage();
             int intImage = cr.localRecipeList.get(i).getIntimage();
             if(intImage == 0){
-                arrFood.add(new Food(id, title, strImage ));
+                arrFood.add(new Food(id, title, imageResource ));
             }else{
                 arrFood.add(new Food(id, title, intImage));
             }
