@@ -60,6 +60,7 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
             String title = cr.localRecipeList.get(i).getTitle();
             String strImage = cr.localRecipeList.get(i).getStringimage();
             int intImage = cr.localRecipeList.get(i).getIntimage();
+            imageResource = getResources().getIdentifier(uri, null, getPackageName());
             if(intImage == 0){
                 if (strImage == null){
                     arrFood.add(new Food(id, title, imageResource));
