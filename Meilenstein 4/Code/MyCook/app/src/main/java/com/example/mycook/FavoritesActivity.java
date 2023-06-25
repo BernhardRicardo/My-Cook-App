@@ -78,9 +78,7 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
             int intImage = cr.localRecipeList.get(i).getIntimage();
             Food food = new Food(id, title, strImage);
             food.setIntImage(intImage);
-            System.out.println("intImage: AAAAAA" + intImage);
             arrFood.add(food);
-
         }
 
 

@@ -144,11 +144,13 @@ public class newRecipeActivity extends AppCompatActivity {
         addToFavoriteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                cr.loadData();
                 RecipeLocal recipe = new RecipeLocal(0, recipeTitelEt.getText().toString(), ingridientsList, stepsList, sImage, 1);
                 cr.localRecipeList.add(recipe);
                 recipe.setEncodedImage(bitmap);
                 cr.saveData();
-                finish();
+                Intent intent = new Intent(newRecipeActivity.this, FavoritesActivity.class);
+                startActivity(intent);
             }
         });
     }
