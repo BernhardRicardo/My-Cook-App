@@ -150,6 +150,7 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
         intent.putExtra("intImage", cr.localRecipeList.get(position).getIntimage());
         intent.putExtra("isFavorite", true);
         intent.putExtra("activity", "FavoritesActivity");
+        intent.putExtra("uriImage", cr.localRecipeList.get(position).getImageUri(this, cr.localRecipeList.get(position).getDecodedImage()).toString());
         startActivity(intent);
     }
 
@@ -166,15 +167,11 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
     }
 
 
-
-
     public void addRecipteButton(View view) {
         startActivity(new Intent(getApplicationContext(), newRecipeActivity.class));
     }
 
     private void searchRecipeInfo(int id, Intent intent){
-
-
 
                     try {
                         JSONObject json = new JSONObject();
@@ -222,9 +219,6 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
                     } catch (JSONException e) {
                         e.printStackTrace();
 
-
-
-
         }
     }
     private void searchRecipe(String ingredient){
@@ -252,23 +246,19 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
             }
 
 
-                    FavoritesActivity.this.runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            recyclerView = findViewById(R.id.recyclerView);
-                            layoutManager = new GridLayoutManager(FavoritesActivity.this, 2);
-                            recyclerView.setLayoutManager(layoutManager);
+            FavoritesActivity.this.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    recyclerView = findViewById(R.id.recyclerView);
+                    layoutManager = new GridLayoutManager(FavoritesActivity.this, 2);
+                    recyclerView.setLayoutManager(layoutManager);
+                    // Pass in an array of images to display
+                    favRecyclerViewAdapter = new RecyclerViewAdapter(arrFood, FavoritesActivity.this);
 
-                            // Pass in an array of images to display
-                            favRecyclerViewAdapter = new RecyclerViewAdapter(arrFood, FavoritesActivity.this);
-
-                            recyclerView.setAdapter(favRecyclerViewAdapter);
-                            recyclerView.setHasFixedSize(true);
-                        }
-                    });
-
-
-        ;
+                    recyclerView.setAdapter(favRecyclerViewAdapter);
+                    recyclerView.setHasFixedSize(true);
+                }
+            });
     }
 }
 

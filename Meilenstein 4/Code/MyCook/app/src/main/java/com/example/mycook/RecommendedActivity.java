@@ -169,6 +169,8 @@ public class RecommendedActivity extends AppCompatActivity implements RecyclerVi
                                 intent.putExtra("instructions", instructions);
                                 intent.putExtra("isFavorite", false);
                                 intent.putExtra("activity", "RecommendedActivity");
+                                intent.putExtra("uriImage", "null");
+
                                 startActivity(intent);
                             }
                         });
