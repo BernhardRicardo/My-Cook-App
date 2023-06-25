@@ -7,13 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-<<<<<<< HEAD
 import android.view.Gravity;
 import android.view.ViewGroup;
-=======
 import android.view.MotionEvent;
 import android.view.View;
->>>>>>> main
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;

@@ -90,7 +90,7 @@ public class newRecipeActivity extends AppCompatActivity {
                 String tmpStringImg = "";
                 idCnt= idCnt +1; //fürDieNamensgebungderJsonFile
                 //int id, String title, ArrayList<String> ingredients, ArrayList<String> instructions, String stringimage, int intimage, int size
-                RecipeLocal recipe = new RecipeLocal(0, recipeTitel, ingridientsList, stepsList, tmpStringImg, 0, 0);
+                RecipeLocal recipe = new RecipeLocal(0, recipeTitel, ingridientsList, stepsList, tmpStringImg, 0);
                 speichern(recipe);
             }
         });

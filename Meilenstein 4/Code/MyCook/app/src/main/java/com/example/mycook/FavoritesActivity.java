@@ -86,13 +86,10 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
         favRecyclerViewAdapter = new RecyclerViewAdapter(arrFood, this);
 
         recyclerView.setAdapter(favRecyclerViewAdapter);
-<<<<<<< HEAD
-        recyclerView.setHasFixedSize(true);*/
-
-
-=======
         recyclerView.setHasFixedSize(true);
->>>>>>> main
+
+
+        recyclerView.setHasFixedSize(true);
         //Menu-Bar
         bottomNavigationView = findViewById(R.id.b_favorites);
         bottomNavigationView.setSelectedItemId(R.id.b_favorites);
@@ -154,13 +151,12 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
         favRecyclerViewAdapter.notifyDataSetChanged();
     }
 
-<<<<<<< HEAD
 
-=======
+
+
     public void addRecipteButton(View view) {
         startActivity(new Intent(getApplicationContext(), newRecipeActivity.class));
     }
->>>>>>> main
 }
 
 
