@@ -218,6 +218,7 @@ public class newRecipeActivity extends AppCompatActivity {
                 cr.loadData();
                 recipeTitel = recipeTitelEt.getText().toString();
                 String tmpStringImg = "";
+<<<<<<< HEAD
                 idCnt= cr.localRecipeList.size() +1; //fürDieNamensgebungderJsonFile
                 //int id, String title, ArrayList<String> ingredients, ArrayList<String> instructions, String stringimage, int intimage
                 RecipeLocal recipe = new RecipeLocal(idCnt, recipeTitel, ingridientsList, stepsList, sharedFact, imageResource);
@@ -227,6 +228,12 @@ public class newRecipeActivity extends AppCompatActivity {
                 cr.saveData();
                 startActivity(new Intent(getApplicationContext(), FavoritesActivity.class));
 
+=======
+                idCnt= idCnt +1; //fürDieNamensgebungderJsonFile
+                //int id, String title, ArrayList<String> ingredients, ArrayList<String> instructions, String stringimage, int intimage, int size
+                RecipeLocal recipe = new RecipeLocal(0, recipeTitel, ingridientsList, stepsList, tmpStringImg, 0);
+                speichern(recipe);
+>>>>>>> main
             }
         });
 

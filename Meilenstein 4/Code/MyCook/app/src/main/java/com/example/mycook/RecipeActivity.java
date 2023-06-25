@@ -7,10 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.ViewGroup;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -35,7 +38,6 @@ public class RecipeActivity extends AppCompatActivity {
         boolean isFavorite = getIntent().getBooleanExtra("isFavorite", false);
         int id = getIntent().getIntExtra("id", 0);
 
-
         AppCompatButton btnFav = (AppCompatButton)findViewById(R.id.recipe_favourite_button);
 
         if(isFavorite) {
@@ -49,7 +51,6 @@ public class RecipeActivity extends AppCompatActivity {
         String image = getIntent().getStringExtra("image");
         int intImage = getIntent().getIntExtra("intImage", 0);
 
-
         TextView tvTitle = findViewById(R.id.recipe_title);
         ImageView ivImage = findViewById(R.id.recipe_image);
 
@@ -57,6 +58,7 @@ public class RecipeActivity extends AppCompatActivity {
         tvTitle.setText(title);
         if(intImage != 0) {
             ivImage.setImageResource(intImage);
+
         } else {
             Glide.with(this).load(image).into(ivImage);
         }
@@ -80,10 +82,6 @@ public class RecipeActivity extends AppCompatActivity {
                 btnFav.setBackgroundResource(R.drawable.ic_favorite_star_gold);
                 cr.localRecipeList.add(new RecipeLocal(id, title, ingredients, instructions, image, intImage));
                 cr.saveData();
-                for(int i = 0; i < cr.localRecipeList.size(); i++){
-                    System.out.println(cr.localRecipeList.size()+"AAAAAAAAAAAAAAAAA");
-                    System.out.println(cr.localRecipeList.get(i).getTitle());
-                }
             }
         });
 
