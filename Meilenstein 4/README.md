@@ -46,6 +46,6 @@ Hier werden die Items ausgewählt.
 Hier wurde diese mit dem "Add to Inventory" Button aus der Shopping List ins Inventory gepushed.
 
 ### Inventory 
-![Diagram](./Screenshots Neu/Screenshot_20230625_201137_MyCook.jpg)
+![Diagram](./Screenshots Neu/Screenshot_20230625_233745_MyCook.jpg)
 
 Wenn man über die Navigation Bar auf "Inventory" drückt landet man auf dem Inventory Screen, hier werden die Items angezeigt die man eingetragen hat und über den Add to Inventory können auch hier noch weitere Lebensmittel hinzugefügt werden.
