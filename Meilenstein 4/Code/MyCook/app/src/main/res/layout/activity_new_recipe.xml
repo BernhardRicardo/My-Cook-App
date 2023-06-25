@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".RecipeActivity"
     android:id="@+id/recipe_scroll_view"
-    android:fillViewport="true"
     android:background="#FFFFFF">
 
     <RelativeLayout
+        android:id="@+id/recipe_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -44,7 +44,7 @@
             android:layout_marginLeft="20dp"
             android:id="@+id/ingredients_title"/>
 
-        <ListView
+        <com.example.mycook.NonScrollListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:isScrollContainer="false"
@@ -58,6 +58,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/ingredientsEdittext"
+            android:text="Ingredients"
+            android:height="48dp"
             android:layout_below="@id/ingredients_list_view"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
@@ -86,21 +88,27 @@
             android:layout_marginLeft="20dp"
             android:id="@+id/steps_title"/>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/steps_title">
 
-
-        <ListView
+        <com.example.mycook.NonScrollListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/steps_title"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:id="@+id/instructions_list_view"/>
 
+
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/stepsEdittext"
+            android:text="Step"
+            android:height="48dp"
+            android:width="48dp"
             android:layout_below="@+id/instructions_list_view"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
@@ -124,13 +132,16 @@
             android:text="Done"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:layout_below="@+id/instructions_list_view"
-            android:layout_toRightOf="@+id/buttonAddSteps"
+            android:layout_below="@+id/stepsEdittext"
             />
-
 
     </RelativeLayout>
 
+
+
+
+
+    </RelativeLayout>
 </ScrollView>
 
     <!--
