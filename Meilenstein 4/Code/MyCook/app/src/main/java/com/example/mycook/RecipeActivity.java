@@ -50,20 +50,24 @@ public class RecipeActivity extends AppCompatActivity {
         String backActivity = getIntent().getStringExtra("activity");
         boolean isFavorite = getIntent().getBooleanExtra("isFavorite", false);
         int id = getIntent().getIntExtra("id", 0);
-        Uri uriImg = Uri.parse(getIntent().getStringExtra("uriImage"));
+        /*
+        Uri uriImg = null;
+        if (getIntent().getStringExtra("uriImg") != null) {
+            uriImg = Uri.parse(getIntent().getStringExtra("uriImg"));
+        }*/
+        AppCompatButton btnFav = (AppCompatButton) findViewById(R.id.recipe_favourite_button);
 
-        AppCompatButton btnFav = (AppCompatButton)findViewById(R.id.recipe_favourite_button);
-
-        if(isFavorite) {
+        if (isFavorite) {
             btnFav.setBackgroundResource(R.drawable.ic_favorite_star_gold);
         } else {
             btnFav.setBackgroundResource(R.drawable.ic_favorite_star);
         }
+
         String title = getIntent().getStringExtra("title");
         ArrayList<String> ingredients = getIntent().getStringArrayListExtra("ingredients");
         ArrayList<String> instructions = getIntent().getStringArrayListExtra("instructions");
         String image = getIntent().getStringExtra("image");
-        intImage= getIntent().getIntExtra("intImage", 0);
+        intImage = getIntent().getIntExtra("intImage", 0);
         String uri = "@drawable/mycooksqr";
         int imageResource = getResources().getIdentifier(uri, null, getPackageName());
         TextView tvTitle = findViewById(R.id.recipe_title);
@@ -71,14 +75,14 @@ public class RecipeActivity extends AppCompatActivity {
 
 
         tvTitle.setText(title);
-        if(intImage == 1) {
+        if (intImage == 1) {
+            Uri uriImg = Uri.parse(getIntent().getStringExtra("uriImage"));
             ivImage.setImageURI(uriImg);
         } else {
             //setIntImage(noImage);
             if (image != null) {
                 Glide.with(this).load(image).into(ivImage);
-            }
-            else {
+            } else {
                 ivImage.setImageResource(imageResource);
                 int desiredWidthInDp = 400; // Die gewünschte Breite in dp
                 int desiredHeightInDp = 400; // Die gewünschte Höhe in dp
@@ -112,7 +116,7 @@ public class RecipeActivity extends AppCompatActivity {
 
 
         btnFav.setOnClickListener(v -> {
-            if(isFavorite) {
+            if (isFavorite) {
                 btnFav.setBackgroundResource(R.drawable.ic_favorite_star);
                 cr.deleteRecipe(id);
                 cr.saveData();
@@ -123,6 +127,6 @@ public class RecipeActivity extends AppCompatActivity {
                 cr.saveData();
             }
         });
-
     }
+
 }
