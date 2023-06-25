@@ -1,7 +1,13 @@
 package com.example.mycook;
 
+import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.provider.MediaStore;
+import android.util.Base64;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class RecipeLocal {
@@ -71,5 +77,28 @@ public class RecipeLocal {
     private int intimage;
 
     private Bitmap pic;
+
+    public void setEncodedImage(Bitmap b) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        b.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+        byte[] byteArray = byteArrayOutputStream .toByteArray();
+        this.stringimage = Base64.encodeToString(byteArray, Base64.DEFAULT);
+    }
+
+    public Bitmap getDecodedImage() {
+        if(this.intimage == 0){
+            return null;
+        }
+        byte[] decodedString = Base64.decode(this.stringimage, Base64.DEFAULT);
+        Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+        return decodedByte;
+    }
+
+    public Uri getImageUri(Context inContext, Bitmap inImage) {
+        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
+        return Uri.parse(path);
+    }
 
 }

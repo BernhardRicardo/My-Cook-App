@@ -1,5 +1,7 @@
 package com.example.mycook;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.Base64;
 import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>{
@@ -32,10 +35,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        if(arr.get(position).getIntImage() == 0){
+        if(arr.get(position).getId() != 0){
             Glide.with(holder.itemView.getContext()).load(arr.get(position).getImage()).into(holder.imageView);
-        }else{
-            holder.imageView.setImageResource(arr.get(position).getIntImage());
+        }else if(arr.get(position).getIntImage() == 1){
+            Bitmap bitmap = arr.get(position).getDecodedImage();
+            holder.imageView.setImageBitmap(bitmap);
         }
         holder.textView.setText(arr.get(position).getTitle());
     }

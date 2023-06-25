@@ -76,16 +76,11 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
             String title = cr.localRecipeList.get(i).getTitle();
             String strImage = cr.localRecipeList.get(i).getStringimage();
             int intImage = cr.localRecipeList.get(i).getIntimage();
-            imageResource = getResources().getIdentifier(uri, null, getPackageName());
-            if(intImage == 0){
-                if (strImage == null){
-                    arrFood.add(new Food(id, title, imageResource));
-                }else {
-                    arrFood.add(new Food(id, title, strImage));
-                }
-            }else{
-                arrFood.add(new Food(id, title, intImage));
-            }
+            Food food = new Food(id, title, strImage);
+            food.setIntImage(intImage);
+            System.out.println("intImage: AAAAAA" + intImage);
+            arrFood.add(food);
+
         }
 
 
@@ -165,11 +160,7 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
             String title = cr.localRecipeList.get(i).getTitle();
             String strImage = cr.localRecipeList.get(i).getStringimage();
             int intImage = cr.localRecipeList.get(i).getIntimage();
-            if(intImage == 0){
-                arrFood.add(new Food(id, title, strImage));
-            }else{
-                arrFood.add(new Food(id, title, intImage));
-            }
+            arrFood.add(new Food(id, title, strImage));
         }
         favRecyclerViewAdapter.notifyDataSetChanged();
     }
