@@ -37,8 +37,6 @@ public class RecipeActivity extends AppCompatActivity {
         String backActivity = getIntent().getStringExtra("activity");
         boolean isFavorite = getIntent().getBooleanExtra("isFavorite", false);
         int id = getIntent().getIntExtra("id", 0);
-        String uri = "@drawable/mycooksqr";
-        int imageResource = getResources().getIdentifier(uri, null, getPackageName());
 
         AppCompatButton btnFav = (AppCompatButton)findViewById(R.id.recipe_favourite_button);
 
@@ -63,24 +61,6 @@ public class RecipeActivity extends AppCompatActivity {
 
         } else {
             Glide.with(this).load(image).into(ivImage);
-            int desiredWidthInDp = 400; // Die gewünschte Breite in dp
-            int desiredHeightInDp = 400; // Die gewünschte Höhe in dp
-            // Konvertiere die Breite und Höhe von dp in Pixel
-            float density = ivImage.getContext().getResources().getDisplayMetrics().density;
-            int desiredWidthInPx = (int) (desiredWidthInDp * density);
-            int desiredHeightInPx = (int) (desiredHeightInDp * density);
-
-            ViewGroup.LayoutParams layoutParams = ivImage.getLayoutParams();
-            layoutParams.width = desiredWidthInPx;
-            layoutParams.height = desiredHeightInPx;
-            ivImage.setLayoutParams(layoutParams);
-
-// Platziere das ImageView mit Abstand zum oberen Rand und zentriere es horizontal
-            RelativeLayout.LayoutParams imageParams = new RelativeLayout.LayoutParams(desiredWidthInPx, desiredHeightInPx);
-            imageParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
-            imageParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
-            imageParams.topMargin = 100; // Abstand zum oberen Rand in Pixel, hier 32 Pixel als Beispiel
-            ivImage.setLayoutParams(imageParams);
         }
 
         ListView lvIngredients = findViewById(R.id.ingredients_list_view);
