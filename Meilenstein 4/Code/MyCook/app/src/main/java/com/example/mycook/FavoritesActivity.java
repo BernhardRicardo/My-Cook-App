@@ -12,6 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.view.MenuItem;
 import android.os.Bundle;
 import android.view.View;
@@ -25,7 +29,7 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
 
     ContainerRecipes cr = new ContainerRecipes();
 
-
+    private int imageResource;
     BottomNavigationView bottomNavigationView;
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
@@ -46,6 +50,19 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
+
+        /*ArrayList<String>tmp1 = new ArrayList<String>();
+        ArrayList<String>tmp2 = new ArrayList<String>();
+        RecipeLocal rl = new RecipeLocal(1, "Test", tmp1, tmp2, "/drawables/shoppingcart.xml", 0);
+
+
+        cr.localRecipeList.add(rl);
+        cr.saveData();*/
+
+        String uri = "@drawable/mycooksqr";
+
+        imageResource = getResources().getIdentifier(uri, null, getPackageName());
+        Drawable res = getResources().getDrawable(imageResource);
         cr.loadData();
 
         for(int i = 0; i < cr.localRecipeList.size(); i++){
@@ -54,7 +71,7 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
             String strImage = cr.localRecipeList.get(i).getStringimage();
             int intImage = cr.localRecipeList.get(i).getIntimage();
             if(intImage == 0){
-                arrFood.add(new Food(id, title, strImage));
+                arrFood.add(new Food(id, title, imageResource ));
             }else{
                 arrFood.add(new Food(id, title, intImage));
             }
@@ -69,13 +86,10 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
         favRecyclerViewAdapter = new RecyclerViewAdapter(arrFood, this);
 
         recyclerView.setAdapter(favRecyclerViewAdapter);
-<<<<<<< HEAD
-        recyclerView.setHasFixedSize(true);*/
-
-
-=======
         recyclerView.setHasFixedSize(true);
->>>>>>> main
+
+
+        recyclerView.setHasFixedSize(true);
         //Menu-Bar
         bottomNavigationView = findViewById(R.id.b_favorites);
         bottomNavigationView.setSelectedItemId(R.id.b_favorites);
@@ -136,6 +150,9 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
         }
         favRecyclerViewAdapter.notifyDataSetChanged();
     }
+
+
+
 
     public void addRecipteButton(View view) {
         startActivity(new Intent(getApplicationContext(), newRecipeActivity.class));
