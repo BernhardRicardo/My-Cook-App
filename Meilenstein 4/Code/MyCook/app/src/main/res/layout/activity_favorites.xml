@@ -24,62 +24,64 @@
 
         />
 
-    <androidx.appcompat.widget.SearchView
-        android:id="@+id/searchView"
+    <EditText
+        android:id="@+id/searchRecipe"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@drawable/roundedcorners"
-        android:backgroundTint="@color/white"
-        app:defaultQueryHint="Search"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:background="@drawable/search_view_bg"
+        android:hint="Search recipes by ingredients"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="10dp"
         app:layout_constraintBottom_toTopOf="@+id/b_favorites"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.005"
-
-
-        app:queryHint="Search Recipe" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="440dp"
-        app:layout_constraintBottom_toTopOf="@+id/b_favorites"
+        android:layout_marginTop="120dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
 
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.038" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="412dp"
         android:backgroundTint="@color/black"
         android:fontFamily="sans-serif-black"
-        android:onClick="recommendedClick"
 
+        android:onClick="recommendedClick"
         android:text="Recommended"
         app:layout_constraintBottom_toTopOf="@+id/b_favorites"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView"
-        app:layout_constraintVertical_bias="0.021" />
+        app:layout_constraintTop_toBottomOf="@+id/searchRecipe"
+        app:layout_constraintVertical_bias="0.17" />
 
     <Button
         android:id="@+id/addNewRecipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="addRecipteButton"
         android:text="Add Recipte"
-        app:layout_constraintBottom_toTopOf="@+id/recyclerView"
+
+        app:layout_constraintBottom_toTopOf="@+id/b_favorites"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.75"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/searchView"
-        app:layout_constraintVertical_bias="0.6"
-        android:onClick="addRecipteButton"/>
+        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchRecipe"
+        app:layout_constraintVertical_bias="0.028" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

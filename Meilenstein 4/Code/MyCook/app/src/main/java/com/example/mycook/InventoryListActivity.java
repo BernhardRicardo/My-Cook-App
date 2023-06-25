@@ -4,7 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
+import android.widget.EditText;
+import android.widget.Button;
 import android.content.Intent;
 import android.view.MenuItem;
 import android.os.Bundle;
@@ -27,13 +28,13 @@ import java.util.ArrayList;
 public class InventoryListActivity extends AppCompatActivity {
    //Inventory File
    private static String FILE_PATH = "/data/data/com.example.mycook/files/testInventory.txt";
-
     private static String FILE_NAME = "testInventory.txt";
     ListView invList;
     ArrayAdapter<String> invAdapter;
     ArrayList<String> inventarArrayList = new ArrayList<String>();
+    EditText eingabefeldIneventory;
+    Button addItems;
 
-    //ArrayList<String> inventar = getIntent().getStringArrayListExtra("inventar");
 
     BottomNavigationView bottomNavigationView;
 
@@ -69,18 +70,24 @@ public class InventoryListActivity extends AppCompatActivity {
                     return true;
                 } else
                     return false;
-
-
             }
         }
         );
+        eingabefeldIneventory = findViewById(R.id.eingabefeldIneventory);
+        addItems = findViewById(R.id.addItems);
 
-       /* invList = findViewById(R.id.listInventar);
-        inventarArrayList.add("Onion");
-        // inventar = new ArrayList<>();
-        ArrayAdapter<String> inventarAdapter;
-        inventarAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, inventarArrayList);
-        invList.setAdapter(inventarAdapter);*/
+        addItems.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String newItem = eingabefeldIneventory.getText().toString().trim();
+                if (!newItem.isEmpty()) {
+                    inventarArrayList.add(newItem);
+                    invAdapter.notifyDataSetChanged();
+                    eingabefeldIneventory.setText("");
+                }
+            }
+        });
+
 
         //Checks if File exits
         File f = new File(FILE_PATH);
@@ -133,6 +140,10 @@ public class InventoryListActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
+
     //Updates Inventory file if stuff was deleted, after swapping activity
     public void updateInventoryData(){
         String selectedItem = "";
