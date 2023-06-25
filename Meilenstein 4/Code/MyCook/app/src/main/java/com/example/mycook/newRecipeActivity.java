@@ -8,6 +8,9 @@ import android.os.Bundle;
 import com.google.android.material.snackbar.Snackbar;
 
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Environment;
@@ -65,9 +68,12 @@ import com.google.gson.Gson;
 
 public class newRecipeActivity extends AppCompatActivity {
 
+    ActivityNewRecipeBinding newRecipeBinding;
+    ActivityResultLauncher<Uri> takePictureLauncher;
+    Uri imageUri;
+    String currentPhotoPath;
 
-    /*String currentPhotoPath;
-
+    private static final int CAMERA_PERMISSION_CODE = 1;
     private File createImageFile() throws IOException {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -106,9 +112,8 @@ public class newRecipeActivity extends AppCompatActivity {
                 startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
             }
         }
-    } */
+    }
 
-    private static final int REQUEST_CAMERA_PERMISSION = 1;
     private static final int REQUEST_IMAGE_CAPTURE = 2;
 
     private ImageView imageView;
@@ -150,21 +155,22 @@ public class newRecipeActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == REQUEST_CAMERA_PERMISSION) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                openCamera();
-            } else {
-                Toast.makeText(this, "Camera permission denied", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_recipe);
+        newRecipeBinding = ActivityNewRecipeBinding.inflate(getLayoutInflater());
+        setContentView(newRecipeBinding.getRoot());
+
+        imageUri = createUri();
+        registerPictureLauncher();
+
+        ImageView picture = findViewById(R.id.recipe_image);
+
+        newRecipeBinding.recipeImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                checkCameraPermission();
+            }
+        });
 
 
 
@@ -185,7 +191,6 @@ public class newRecipeActivity extends AppCompatActivity {
 
         Button addToFavoriteButton = findViewById(R.id.newRecipeDone);
 
-        ImageView picture = findViewById(R.id.recipe_image);
 
         EditText recipeTitelEt = findViewById(R.id.recipe_title);
 
@@ -210,7 +215,7 @@ public class newRecipeActivity extends AppCompatActivity {
                 ingredientsEt.setText("");
             }
         });
-
+/*
         addToFavoriteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -218,7 +223,6 @@ public class newRecipeActivity extends AppCompatActivity {
                 cr.loadData();
                 recipeTitel = recipeTitelEt.getText().toString();
                 String tmpStringImg = "";
-<<<<<<< HEAD
                 idCnt= cr.localRecipeList.size() +1; //fürDieNamensgebungderJsonFile
                 //int id, String title, ArrayList<String> ingredients, ArrayList<String> instructions, String stringimage, int intimage
                 RecipeLocal recipe = new RecipeLocal(idCnt, recipeTitel, ingridientsList, stepsList, sharedFact, imageResource);
@@ -228,17 +232,15 @@ public class newRecipeActivity extends AppCompatActivity {
                 cr.saveData();
                 startActivity(new Intent(getApplicationContext(), FavoritesActivity.class));
 
-=======
                 idCnt= idCnt +1; //fürDieNamensgebungderJsonFile
                 //int id, String title, ArrayList<String> ingredients, ArrayList<String> instructions, String stringimage, int intimage, int size
                 RecipeLocal recipe = new RecipeLocal(0, recipeTitel, ingridientsList, stepsList, tmpStringImg, 0);
                 speichern(recipe);
->>>>>>> main
             }
         });
 
 
-       /* public void writeFileOnInternalStorage(Context mcoContext, String sFileName, String sBody){
+       public void writeFileOnInternalStorage(Context mcoContext, String sFileName, String sBody){
             File dir = new File(mcoContext.getFilesDir(), "mydir");
             if(!dir.exists()){
                 dir.mkdir();
@@ -253,32 +255,11 @@ public class newRecipeActivity extends AppCompatActivity {
             } catch (Exception e){
                 e.printStackTrace();
             }
-        } */
-
-        imageView = findViewById(R.id.recipe_image);
-
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (ContextCompat.checkSelfPermission(newRecipeActivity.this, Manifest.permission.CAMERA)
-                        == PackageManager.PERMISSION_GRANTED) {
-                    openCamera();
-                } else {
-                    ActivityCompat.requestPermissions(newRecipeActivity.this,
-                            new String[]{Manifest.permission.CAMERA}, REQUEST_CAMERA_PERMISSION);
-                }
-            }
-        });
+        }
+        */
 
     }
 
-    public String bitmapToString(@NonNull Bitmap bitmap) {
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
-        byte[] b = baos.toByteArray();
-        String encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
-        return encodedImage;
-    }
 
 
     public void addToStepsList(View view){
@@ -295,4 +276,46 @@ public class newRecipeActivity extends AppCompatActivity {
 
     private int idCnt= 0;
 
+    private Uri createUri() {
+        File imageFile = new File(getApplicationContext().getFilesDir(), "camera_photo.jpg");
+        return FileProvider.getUriForFile(getApplicationContext(), "com.example.mycook.fileProvider", imageFile);
+    }
+
+    private void registerPictureLauncher() {
+        takePictureLauncher = registerForActivityResult(new ActivityResultContracts.TakePicture(), new ActivityResultCallback<Boolean>() {
+            @Override
+            public void onActivityResult(Boolean result) {
+                try {
+                    if (result) {
+                        newRecipeBinding.recipeImage.setImageURI(null);
+                        newRecipeBinding.recipeImage.setImageURI(imageUri);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void checkCameraPermission() {
+        if (ActivityCompat.checkSelfPermission(newRecipeActivity.this, Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(newRecipeActivity.this,
+                    new String[]{Manifest.permission.CAMERA}, CAMERA_PERMISSION_CODE);
+        }else{
+            takePictureLauncher.launch(imageUri);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == CAMERA_PERMISSION_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                takePictureLauncher.launch(imageUri);
+            } else {
+                Toast.makeText(this, "Camera permission denied", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 }
