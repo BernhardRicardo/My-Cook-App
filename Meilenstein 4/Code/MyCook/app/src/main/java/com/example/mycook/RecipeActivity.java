@@ -6,7 +6,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.ViewGroup;
@@ -23,6 +26,7 @@ import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
+import java.util.Base64;
 
 public class RecipeActivity extends AppCompatActivity {
     public int getIntImage() {
@@ -34,7 +38,6 @@ public class RecipeActivity extends AppCompatActivity {
     }
 
     int intImage;
-    BottomNavigationView bottomNavigationView;
     ContainerRecipes cr = new ContainerRecipes();
 
 
@@ -47,6 +50,7 @@ public class RecipeActivity extends AppCompatActivity {
         String backActivity = getIntent().getStringExtra("activity");
         boolean isFavorite = getIntent().getBooleanExtra("isFavorite", false);
         int id = getIntent().getIntExtra("id", 0);
+        Uri uriImg = Uri.parse(getIntent().getStringExtra("uriImage"));
 
         AppCompatButton btnFav = (AppCompatButton)findViewById(R.id.recipe_favourite_button);
 
@@ -67,9 +71,8 @@ public class RecipeActivity extends AppCompatActivity {
 
 
         tvTitle.setText(title);
-        if(intImage != 0) {
-            ivImage.setImageResource(intImage);
-
+        if(intImage == 1) {
+            ivImage.setImageURI(uriImg);
         } else {
             //setIntImage(noImage);
             if (image != null) {
@@ -118,10 +121,6 @@ public class RecipeActivity extends AppCompatActivity {
                 btnFav.setBackgroundResource(R.drawable.ic_favorite_star_gold);
                 cr.localRecipeList.add(new RecipeLocal(id, title, ingredients, instructions, image, intImage));
                 cr.saveData();
-                for(int i = 0; i < cr.localRecipeList.size(); i++){
-                    System.out.println(cr.localRecipeList.size()+"AAAAAAAAAAAAAAAAA");
-                    System.out.println(cr.localRecipeList.get(i).getTitle());
-                }
             }
         });
 

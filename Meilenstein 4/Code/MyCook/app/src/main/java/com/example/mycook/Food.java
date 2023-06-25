@@ -1,5 +1,13 @@
 package com.example.mycook;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.provider.MediaStore;
+import android.util.Base64;
+
+import java.io.ByteArrayOutputStream;
+
 public class Food {
 
     public Food(int id, String title, String image) {
@@ -36,8 +44,17 @@ public class Food {
         return image;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setEncodedImage(Bitmap b) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        b.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+        byte[] byteArray = byteArrayOutputStream .toByteArray();
+        this.image = Base64.encodeToString(byteArray, Base64.DEFAULT);
+    }
+
+    public Bitmap getDecodedImage() {
+        byte[] decodedString = Base64.decode(this.image, Base64.DEFAULT);
+        Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+        return decodedByte;
     }
 
     public int getIntImage() {

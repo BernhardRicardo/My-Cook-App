@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
-
 import com.google.android.material.snackbar.Snackbar;
 
 
@@ -71,89 +70,17 @@ public class newRecipeActivity extends AppCompatActivity {
     ActivityNewRecipeBinding newRecipeBinding;
     ActivityResultLauncher<Uri> takePictureLauncher;
     Uri imageUri;
-    String currentPhotoPath;
+    Bitmap bitmap;
+
+    String sImage;
+    ContainerRecipes cr = new ContainerRecipes();
 
     private static final int CAMERA_PERMISSION_CODE = 1;
-    private File createImageFile() throws IOException {
-        // Create an image file name
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "JPEG_" + timeStamp + "_";
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(
-                imageFileName,  // prefix
-                ".jpg",         // suffix
-                storageDir      // directory
-        );
 
-        // Save a file: path for use with ACTION_VIEW intents
-        currentPhotoPath = image.getAbsolutePath();
-        return image;
-    }
+    public ArrayList<String> stepsList = new ArrayList<>();
+    public ArrayList<String> ingridientsList = new ArrayList<>();
 
-    private void dispatchTakePictureIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        // Ensure that there's a camera activity to handle the intent
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            // Create the File where the photo should go
-            File photoFile = null;
-            try {
-                photoFile = createImageFile();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
 
-            // Continue only if the File was successfully created
-            if (photoFile != null) {
-                Uri photoURI = FileProvider.getUriForFile(this,
-                        "com.example.android.fileprovider",
-                        photoFile);
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                int REQUEST_IMAGE_CAPTURE = new Integer(0);
-                startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-            }
-        }
-    }
-
-    private static final int REQUEST_IMAGE_CAPTURE = 2;
-
-    private ImageView imageView;
-
-    private int imageResource;
-    private Bitmap imageBitmap;
-
-    private String image;
-
-    private String sharedFact;
-
-    private AppBarConfiguration appBarConfiguration;
-    private ActivityNewRecipeBinding binding;
-    public ArrayList<String> stepsList = new ArrayList<String>();
-    public ArrayList<String> ingridientsList = new ArrayList<String>();
-    public String recipeTitel;
-
-    private void openCamera() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-        } else {
-            Toast.makeText(this, "No camera app found", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
-            if (extras != null) {
-                imageBitmap = (Bitmap) extras.get("data");
-                imageView.setImageBitmap(imageBitmap);
-                sharedFact = imageView.toString();
-                imageResource = getResources().getIdentifier(imageBitmap.toString(), null, getPackageName()); //Bitmap to String, klappt nicht...
-               // image = bitmapToString(imageBitmap); // Bild zu String (klappt nicht, in Fav wird kein Bild angezeigt)
-            }
-        }
-    }
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -162,8 +89,6 @@ public class newRecipeActivity extends AppCompatActivity {
 
         imageUri = createUri();
         registerPictureLauncher();
-
-        ImageView picture = findViewById(R.id.recipe_image);
 
         newRecipeBinding.recipeImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -215,66 +140,24 @@ public class newRecipeActivity extends AppCompatActivity {
                 ingredientsEt.setText("");
             }
         });
-/*
+
         addToFavoriteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ContainerRecipes cr = new ContainerRecipes();
-                cr.loadData();
-                recipeTitel = recipeTitelEt.getText().toString();
-                String tmpStringImg = "";
-                idCnt= cr.localRecipeList.size() +1; //fürDieNamensgebungderJsonFile
-                //int id, String title, ArrayList<String> ingredients, ArrayList<String> instructions, String stringimage, int intimage
-                RecipeLocal recipe = new RecipeLocal(idCnt, recipeTitel, ingridientsList, stepsList, sharedFact, imageResource);
-
-
+                RecipeLocal recipe = new RecipeLocal(0, recipeTitelEt.getText().toString(), ingridientsList, stepsList, sImage, 1);
                 cr.localRecipeList.add(recipe);
+                recipe.setEncodedImage(bitmap);
                 cr.saveData();
-                startActivity(new Intent(getApplicationContext(), FavoritesActivity.class));
-
-                idCnt= idCnt +1; //fürDieNamensgebungderJsonFile
-                //int id, String title, ArrayList<String> ingredients, ArrayList<String> instructions, String stringimage, int intimage, int size
-                RecipeLocal recipe = new RecipeLocal(0, recipeTitel, ingridientsList, stepsList, tmpStringImg, 0);
-                speichern(recipe);
+                finish();
             }
         });
-
-
-       public void writeFileOnInternalStorage(Context mcoContext, String sFileName, String sBody){
-            File dir = new File(mcoContext.getFilesDir(), "mydir");
-            if(!dir.exists()){
-                dir.mkdir();
-            }
-
-            try {
-                File gpxfile = new File(dir, sFileName);
-                FileWriter writer = new FileWriter(gpxfile);
-                writer.append(sBody);
-                writer.flush();
-                writer.close();
-            } catch (Exception e){
-                e.printStackTrace();
-            }
-        }
-        */
-
     }
-
-
-
-    public void addToStepsList(View view){
-
-    }
-
 
 
     @Override
     public <T extends View> T findViewById(int id) {
         return super.findViewById(id);
-
     }
-
-    private int idCnt= 0;
 
     private Uri createUri() {
         File imageFile = new File(getApplicationContext().getFilesDir(), "camera_photo.jpg");
@@ -288,7 +171,16 @@ public class newRecipeActivity extends AppCompatActivity {
                 try {
                     if (result) {
                         newRecipeBinding.recipeImage.setImageURI(null);
+                        try {
+
+                            bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imageUri);
+                            newRecipeBinding.recipeImage.setImageBitmap(bitmap);
+
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
                         newRecipeBinding.recipeImage.setImageURI(imageUri);
+                        System.out.println("Image saved" + sImage);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -318,4 +210,5 @@ public class newRecipeActivity extends AppCompatActivity {
             }
         }
     }
+
 }
