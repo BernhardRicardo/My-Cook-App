@@ -35,7 +35,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        if(arr.get(position).getId() != 0){
+        if(!arr.get(position).isFromCamera()){
             Glide.with(holder.itemView.getContext()).load(arr.get(position).getImage()).into(holder.imageView);
         }else if(arr.get(position).getIntImage() == 1){
             Bitmap bitmap = arr.get(position).getDecodedImage();

@@ -7,11 +7,19 @@ import android.provider.MediaStore;
 import android.util.Base64;
 
 import java.io.ByteArrayOutputStream;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Food {
 
+    private static final AtomicInteger count = new AtomicInteger(0);
     public Food(int id, String title, String image) {
-        this.id = id;
+        if(id == 0) {
+            this.id = count.incrementAndGet();
+            this.fromCamera = true;
+        } else {
+            this.id = id;
+            this.fromCamera = false;
+        }
         this.title = title;
         this.image = image;
         this.intImage = 0;
@@ -68,6 +76,12 @@ public class Food {
     private int id;
     private String title;
     private String image;
+
+    public boolean isFromCamera() {
+        return fromCamera;
+    }
+
+    private boolean fromCamera;
 
     private int intImage;
 }
