@@ -9,7 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
+import android.widget.EditText;
+import android.widget.Button;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -75,7 +76,7 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
 
         recyclerView.setAdapter(favRecyclerViewAdapter);
         recyclerView.setHasFixedSize(true);
-        
+
         //Menu-Bar
         bottomNavigationView = findViewById(R.id.b_favorites);
         bottomNavigationView.setSelectedItemId(R.id.b_favorites);
