@@ -99,14 +99,6 @@ public class ShoppingListActivity extends AppCompatActivity {
                     // Setze das Eingabefeld zurück
                     eingabeText.setText("");
                 }
-
-                shoppingItems.add(newItem);
-                // Aktualisiere den Adapter
-                adapterShopping.notifyDataSetChanged();
-                // Setze das Eingabefeld zurück
-                eingabeText.setText("");
-
-
             }
         });
 

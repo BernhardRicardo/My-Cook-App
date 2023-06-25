@@ -44,7 +44,7 @@ public class RecommendedActivity extends AppCompatActivity implements RecyclerVi
     RecyclerViewAdapter recyclerViewAdapter;
     List<Food> arrFood = new ArrayList<>();
 
-    private String apiKey = "76d8c40b12msh5d1ad7c60215853p1e3045jsn8e82d8f51cb0";
+    private String apiKey = "";//"76d8c40b12msh5d1ad7c60215853p1e3045jsn8e82d8f51cb0";
 
     @SuppressLint("MissingInflatedId")
     @Override
