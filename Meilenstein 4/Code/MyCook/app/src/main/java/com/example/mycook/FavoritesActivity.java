@@ -74,10 +74,20 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
         favRecyclerViewAdapter = new RecyclerViewAdapter(arrFood, this);
 
         recyclerView.setAdapter(favRecyclerViewAdapter);
+<<<<<<< HEAD
+
+        recyclerView.setHasFixedSize(true);
+
+
+
+        recyclerView.setHasFixedSize(true);
+
+=======
         recyclerView.setHasFixedSize(true);
 
 
         recyclerView.setHasFixedSize(true);
+>>>>>>> main
         //Menu-Bar
         bottomNavigationView = findViewById(R.id.b_favorites);
         bottomNavigationView.setSelectedItemId(R.id.b_favorites);

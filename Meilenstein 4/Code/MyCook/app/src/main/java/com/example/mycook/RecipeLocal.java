@@ -1,5 +1,7 @@
 package com.example.mycook;
 
+import android.graphics.Bitmap;
+
 import java.util.ArrayList;
 
 public class RecipeLocal {
@@ -11,10 +13,18 @@ public class RecipeLocal {
         this.instructions = instructions;
         this.stringimage = stringimage;
         this.intimage = intimage;
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
         this.size = size;
         //this.sizeIngredients = sizeIngredients;
         //this.sizeInstructions = sizeInstructions;
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
     }
 
     public int getId() {
@@ -71,8 +81,14 @@ public class RecipeLocal {
     private ArrayList<String> instructions;
     private String stringimage;
     private int intimage;
+<<<<<<< HEAD
+
+=======
+>>>>>>> main
     private int size;
     private int sizeIngredients;
+
+    private Bitmap pic;
 
     private int sizeInstructions;
 }

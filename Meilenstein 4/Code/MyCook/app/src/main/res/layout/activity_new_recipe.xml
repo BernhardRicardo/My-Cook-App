@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".RecipeActivity"
     android:id="@+id/recipe_scroll_view"
-    android:fillViewport="true"
     android:background="#FFFFFF">
 
     <RelativeLayout
+        android:id="@+id/recipe_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -58,6 +58,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/ingredientsEdittext"
+            android:text="Ingredients"
+            android:height="48dp"
             android:layout_below="@id/ingredients_list_view"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
@@ -86,6 +88,20 @@
             android:layout_marginLeft="20dp"
             android:id="@+id/steps_title"/>
 
+<<<<<<< HEAD
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/steps_title">
+
+        <com.example.mycook.NonScrollListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:id="@+id/instructions_list_view"/>
+=======
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -101,12 +117,21 @@
                 android:id="@+id/instructions_list_view"/>
 
         </RelativeLayout>
+>>>>>>> main
+
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/stepsEdittext"
+<<<<<<< HEAD
+            android:text="Step"
+            android:height="48dp"
+            android:width="48dp"
+            android:layout_below="@+id/instructions_list_view"
+=======
             android:layout_below="@+id/layout_ingredients"
+>>>>>>> main
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"/>
@@ -129,13 +154,21 @@
             android:text="Done"
             android:textSize="15sp"
             android:textStyle="bold"
+<<<<<<< HEAD
+            android:layout_below="@+id/stepsEdittext"
+=======
             android:layout_below="@+id/layout_ingredients"
             android:layout_toRightOf="@+id/buttonAddSteps"
+>>>>>>> main
             />
-
 
     </RelativeLayout>
 
+
+
+
+
+    </RelativeLayout>
 </ScrollView>
 
     <!--
