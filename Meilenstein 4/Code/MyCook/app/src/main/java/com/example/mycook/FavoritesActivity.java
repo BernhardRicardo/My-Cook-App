@@ -51,6 +51,7 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
+        String uri = "@drawable/mycooksqr";
 
         cr.loadData();
 
@@ -60,7 +61,11 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
             String strImage = cr.localRecipeList.get(i).getStringimage();
             int intImage = cr.localRecipeList.get(i).getIntimage();
             if(intImage == 0){
-                arrFood.add(new Food(id, title, strImage));
+                if (strImage == null){
+                    arrFood.add(new Food(id, title, imageResource));
+                }else {
+                    arrFood.add(new Food(id, title, strImage));
+                }
             }else{
                 arrFood.add(new Food(id, title, intImage));
             }
