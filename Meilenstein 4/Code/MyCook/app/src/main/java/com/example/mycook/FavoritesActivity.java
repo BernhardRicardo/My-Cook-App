@@ -19,6 +19,7 @@ import android.graphics.drawable.Drawable;
 import android.view.MenuItem;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +34,7 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
     private RecyclerView recyclerView;
     RecyclerView.LayoutManager layoutManager;
     RecyclerViewAdapter favRecyclerViewAdapter;
+    Button AddRecipeButton;
 
     public List<Food> arrFood = new ArrayList<>();
 
@@ -84,7 +86,13 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
         favRecyclerViewAdapter = new RecyclerViewAdapter(arrFood, this);
 
         recyclerView.setAdapter(favRecyclerViewAdapter);
+<<<<<<< HEAD
+        recyclerView.setHasFixedSize(true);*/
+
+
+=======
         recyclerView.setHasFixedSize(true);
+>>>>>>> main
         //Menu-Bar
         bottomNavigationView = findViewById(R.id.b_favorites);
         bottomNavigationView.setSelectedItemId(R.id.b_favorites);
@@ -146,7 +154,13 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
         favRecyclerViewAdapter.notifyDataSetChanged();
     }
 
+<<<<<<< HEAD
 
+=======
+    public void addRecipteButton(View view) {
+        startActivity(new Intent(getApplicationContext(), newRecipeActivity.class));
+    }
+>>>>>>> main
 }
 
 
