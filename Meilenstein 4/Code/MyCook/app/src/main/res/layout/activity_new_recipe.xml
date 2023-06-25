@@ -88,20 +88,6 @@
             android:layout_marginLeft="20dp"
             android:id="@+id/steps_title"/>
 
-<<<<<<< HEAD
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/steps_title">
-
-        <com.example.mycook.NonScrollListView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:id="@+id/instructions_list_view"/>
-=======
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -117,21 +103,16 @@
                 android:id="@+id/instructions_list_view"/>
 
         </RelativeLayout>
->>>>>>> main
 
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/stepsEdittext"
-<<<<<<< HEAD
             android:text="Step"
             android:height="48dp"
             android:width="48dp"
-            android:layout_below="@+id/instructions_list_view"
-=======
             android:layout_below="@+id/layout_ingredients"
->>>>>>> main
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"/>
@@ -154,34 +135,12 @@
             android:text="Done"
             android:textSize="15sp"
             android:textStyle="bold"
-<<<<<<< HEAD
-            android:layout_below="@+id/stepsEdittext"
-=======
             android:layout_below="@+id/layout_ingredients"
             android:layout_toRightOf="@+id/buttonAddSteps"
->>>>>>> main
+
             />
 
     </RelativeLayout>
 
-
-
-
-
-    </RelativeLayout>
 </ScrollView>
 
-    <!--
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/b_favorites"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_menu"
-        app:itemIconTint="@color/white"
-        app:itemTextColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:menu="@menu/bottom_nav"
-        />
-    -->
