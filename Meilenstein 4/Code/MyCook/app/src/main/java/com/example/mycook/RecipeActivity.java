@@ -51,8 +51,7 @@ public class RecipeActivity extends AppCompatActivity {
         ArrayList<String> ingredients = getIntent().getStringArrayListExtra("ingredients");
         ArrayList<String> instructions = getIntent().getStringArrayListExtra("instructions");
         String image = getIntent().getStringExtra("image");
-        int intImage = getResources().getIdentifier(uri, null, getPackageName());
-
+        int intImage = getIntent().getIntExtra("intImage", 0);
 
         TextView tvTitle = findViewById(R.id.recipe_title);
         ImageView ivImage = findViewById(R.id.recipe_image);
@@ -61,6 +60,9 @@ public class RecipeActivity extends AppCompatActivity {
         tvTitle.setText(title);
         if(intImage != 0) {
             ivImage.setImageResource(intImage);
+
+        } else {
+            Glide.with(this).load(image).into(ivImage);
             int desiredWidthInDp = 400; // Die gewünschte Breite in dp
             int desiredHeightInDp = 400; // Die gewünschte Höhe in dp
             // Konvertiere die Breite und Höhe von dp in Pixel
@@ -79,8 +81,6 @@ public class RecipeActivity extends AppCompatActivity {
             imageParams.addRule(RelativeLayout.CENTER_HORIZONTAL);
             imageParams.topMargin = 100; // Abstand zum oberen Rand in Pixel, hier 32 Pixel als Beispiel
             ivImage.setLayoutParams(imageParams);
-        } else {
-            Glide.with(this).load(image).into(ivImage);
         }
 
         ListView lvIngredients = findViewById(R.id.ingredients_list_view);
