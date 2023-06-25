@@ -44,7 +44,7 @@
             android:layout_marginLeft="20dp"
             android:id="@+id/ingredients_title"/>
 
-        <ListView
+        <com.example.mycook.NonScrollListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:isScrollContainer="false"
@@ -86,22 +86,27 @@
             android:layout_marginLeft="20dp"
             android:id="@+id/steps_title"/>
 
-
-
-        <ListView
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/steps_title"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:id="@+id/instructions_list_view"/>
+            android:id="@+id/layout_ingredients">
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:id="@+id/instructions_list_view"/>
+
+        </RelativeLayout>
 
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/stepsEdittext"
-            android:layout_below="@+id/instructions_list_view"
+            android:layout_below="@+id/layout_ingredients"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"/>
@@ -113,7 +118,7 @@
             android:text="+"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:layout_below="@+id/instructions_list_view"
+            android:layout_below="@+id/layout_ingredients"
             android:layout_toRightOf="@+id/stepsEdittext"
             android:layout_marginRight="20dp"/>
 
@@ -124,7 +129,7 @@
             android:text="Done"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:layout_below="@+id/instructions_list_view"
+            android:layout_below="@+id/layout_ingredients"
             android:layout_toRightOf="@+id/buttonAddSteps"
             />
 
