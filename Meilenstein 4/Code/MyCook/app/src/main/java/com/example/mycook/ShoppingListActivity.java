@@ -92,6 +92,14 @@ public class ShoppingListActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Füge das eingegebene Element zur Liste hinzu
                 String newItem = eingabeText.getText().toString();
+                if (!newItem.isEmpty()) {
+                    shoppingItems.add(newItem);
+                    // Aktualisiere den Adapter
+                    adapterShopping.notifyDataSetChanged();
+                    // Setze das Eingabefeld zurück
+                    eingabeText.setText("");
+                }
+
                 shoppingItems.add(newItem);
                 // Aktualisiere den Adapter
                 adapterShopping.notifyDataSetChanged();

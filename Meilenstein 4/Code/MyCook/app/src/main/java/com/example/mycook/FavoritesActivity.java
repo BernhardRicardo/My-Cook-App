@@ -9,7 +9,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
+import android.widget.EditText;
+import android.widget.Button;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -50,6 +51,7 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favorites);
+        String uri = "@drawable/mycooksqr";
 
         cr.loadData();
 
@@ -58,8 +60,13 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
             String title = cr.localRecipeList.get(i).getTitle();
             String strImage = cr.localRecipeList.get(i).getStringimage();
             int intImage = cr.localRecipeList.get(i).getIntimage();
+            imageResource = getResources().getIdentifier(uri, null, getPackageName());
             if(intImage == 0){
-                arrFood.add(new Food(id, title, strImage));
+                if (strImage == null){
+                    arrFood.add(new Food(id, title, imageResource));
+                }else {
+                    arrFood.add(new Food(id, title, strImage));
+                }
             }else{
                 arrFood.add(new Food(id, title, intImage));
             }
@@ -75,7 +82,7 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
 
         recyclerView.setAdapter(favRecyclerViewAdapter);
         recyclerView.setHasFixedSize(true);
-        
+
         //Menu-Bar
         bottomNavigationView = findViewById(R.id.b_favorites);
         bottomNavigationView.setSelectedItemId(R.id.b_favorites);
