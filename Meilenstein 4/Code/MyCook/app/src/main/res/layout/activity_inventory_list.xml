@@ -41,24 +41,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/inventoryHeader"
-        android:layout_above="@+id/eingabefeldIneventory" />
+        android:layout_above="@+id/b_inventory"/>
 
-    <EditText
-        android:id="@+id/eingabefeldIneventory"
-        android:layout_width="match_parent"
-        android:layout_height="49dp"
-        android:ems="10"
-        android:hint="WarenName"
-        android:inputType="text"
-        android:layout_above="@id/addItems" />
 
-    <Button
-        android:id="@+id/addItems"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Add Items zu Inventory"
-        android:layout_marginBottom="19dp"
-        android:layout_above="@+id/b_inventory"
-        />
 
 </RelativeLayout>
