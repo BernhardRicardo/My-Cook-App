@@ -81,7 +81,6 @@ public class newRecipeActivity extends AppCompatActivity {
     public ArrayList<String> ingridientsList = new ArrayList<>();
 
 
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         newRecipeBinding = ActivityNewRecipeBinding.inflate(getLayoutInflater());
@@ -98,13 +97,10 @@ public class newRecipeActivity extends AppCompatActivity {
         });
 
 
-
         ListView stepsListView = findViewById(R.id.instructions_list_view);
 
         ArrayAdapter<String> stepsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1 ,stepsList);
         stepsListView.setAdapter(stepsAdapter);
-
-
 
         ListView ingredientsListView = findViewById(R.id.ingredients_list_view);
         ArrayAdapter<String> ingredientsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1 ,ingridientsList);
@@ -115,7 +111,7 @@ public class newRecipeActivity extends AppCompatActivity {
         Button addIngriedientButton = findViewById(R.id.buttonAddingrediets);
 
         Button addToFavoriteButton = findViewById(R.id.newRecipeDone);
-
+        addToFavoriteButton.setEnabled(false);
 
         EditText recipeTitelEt = findViewById(R.id.recipe_title);
 
@@ -182,7 +178,7 @@ public class newRecipeActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
                         newRecipeBinding.recipeImage.setImageURI(imageUri);
-                        System.out.println("Image saved" + sImage);
+                        newRecipeBinding.newRecipeDone.setEnabled(true);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

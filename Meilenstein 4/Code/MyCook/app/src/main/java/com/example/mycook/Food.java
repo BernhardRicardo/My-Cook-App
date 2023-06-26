@@ -16,13 +16,14 @@ public class Food {
         if(id == 0) {
             this.id = count.incrementAndGet();
             this.fromCamera = true;
+            this.intImage = 1;
         } else {
             this.id = id;
             this.fromCamera = false;
+            this.intImage = 0;
         }
         this.title = title;
         this.image = image;
-        this.intImage = 0;
     }
 
     public Food(int id, String title, int image) {

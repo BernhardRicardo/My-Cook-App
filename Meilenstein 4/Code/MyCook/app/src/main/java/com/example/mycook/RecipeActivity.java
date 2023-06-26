@@ -118,7 +118,7 @@ public class RecipeActivity extends AppCompatActivity {
         btnFav.setOnClickListener(v -> {
             if (isFavorite) {
                 btnFav.setBackgroundResource(R.drawable.ic_favorite_star);
-                cr.deleteRecipe(id);
+                cr.deleteRecipe(id, title);
                 cr.saveData();
             } else {
 

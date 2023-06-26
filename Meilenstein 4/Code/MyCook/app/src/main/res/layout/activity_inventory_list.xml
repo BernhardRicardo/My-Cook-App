@@ -5,7 +5,7 @@
     android:id="@+id/screen_inventory"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#5C808080">
+    android:background="#FFFFFF">
 
     <TextView
         android:id="@+id/inventoryHeader"
@@ -49,6 +49,8 @@
         android:layout_height="49dp"
         android:ems="10"
         android:hint="WarenName"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:inputType="text"
         android:layout_above="@id/addItems" />
 
@@ -58,6 +60,8 @@
         android:layout_height="wrap_content"
         android:text="Add Items zu Inventory"
         android:layout_marginBottom="19dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_above="@+id/b_inventory"
         />
 

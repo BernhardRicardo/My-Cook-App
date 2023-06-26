@@ -67,7 +67,22 @@ public class RecommendedActivity extends AppCompatActivity implements RecyclerVi
         });
 
         // Change this with ingredients from inventory later
-        searchRecipe("chicken");
+        InventoryListActivity i = new InventoryListActivity();
+        if(i.inventarArrayList.size() > 2){
+            //choose random 2 ingredients
+            int random1 = (int) (Math.random() * i.inventarArrayList.size());
+            int random2 = (int) (Math.random() * i.inventarArrayList.size());
+            while(random1 == random2){
+                random2 = (int) (Math.random() * i.inventarArrayList.size());
+            }
+            String searchKey = i.inventarArrayList.get(random1) + "," + i.inventarArrayList.get(random2);
+            searchRecipe(searchKey);
+        }else if(i.inventarArrayList.size() > 0){
+            String searchKey = i.inventarArrayList.get(0);
+            searchRecipe(searchKey);
+        }else{
+            searchRecipe("chicken");
+        }
 
 
         bottomNavigationView = findViewById(R.id.b_favorites);

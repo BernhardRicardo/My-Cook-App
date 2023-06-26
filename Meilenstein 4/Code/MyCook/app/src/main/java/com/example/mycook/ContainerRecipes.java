@@ -54,10 +54,11 @@ public class ContainerRecipes {
         }
     }
 
-    public void deleteRecipe(int id){
+    public void deleteRecipe(int id, String title){
         for(int i = 0; i < localRecipeList.size(); i++){
-            if(localRecipeList.get(i).getId() == id){
+            if(localRecipeList.get(i).getId() == id && localRecipeList.get(i).getTitle().equals(title)){
                 localRecipeList.remove(i);
+                break;
             }
         }
     }
