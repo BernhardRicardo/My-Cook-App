@@ -1,6 +1,8 @@
 # Meilenstein 5
 
 ## Ergebnisse der App mit Screenshots
+Die gesamte App ist nur im Vertikalen Modus einsetzbar, dies ist begründet durch die einhändige Bedienung die dadurch resultiert. Beim Kochen oder wenn man am Einkaufen ist kann man so die App mit einer Hand einfach bedienen.
+
 
 ### Home Screen / Favorite Screen
 ![Diagram](./Screenshots Neu/Screenshot_20230625_201034_MyCook.jpg)
