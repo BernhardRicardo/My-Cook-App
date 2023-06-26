@@ -148,7 +148,11 @@ public class FavoritesActivity extends AppCompatActivity implements RecyclerView
         intent.putExtra("intImage", cr.localRecipeList.get(position).getIntimage());
         intent.putExtra("isFavorite", true);
         intent.putExtra("activity", "FavoritesActivity");
-        intent.putExtra("uriImage", cr.localRecipeList.get(position).getImageUri(this, cr.localRecipeList.get(position).getDecodedImage()).toString());
+        if(cr.localRecipeList.get(position).getDecodedImage() != null){
+            intent.putExtra("uriImage", cr.localRecipeList.get(position).getImageUri(this, cr.localRecipeList.get(position).getDecodedImage()).toString());
+        }else{
+            intent.putExtra("uriImage", "null");
+        }
         startActivity(intent);
     }
 

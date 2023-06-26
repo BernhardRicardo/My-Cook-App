@@ -31,7 +31,7 @@ public class InventoryListActivity extends AppCompatActivity {
     private static String FILE_NAME = "testInventory.txt";
     ListView invList;
     ArrayAdapter<String> invAdapter;
-    ArrayList<String> inventarArrayList = new ArrayList<String>();
+    public ArrayList<String> inventarArrayList = new ArrayList<>();
     EditText eingabefeldIneventory;
     Button addItems;
 
@@ -119,14 +119,14 @@ public class InventoryListActivity extends AppCompatActivity {
                 }
             }
             invList = findViewById(R.id.listInventar);
-            invAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, inventarArrayList);
+            invAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, inventarArrayList);
             invList.setAdapter(invAdapter);
         }
         else {
             //No Inventory file
             Toast.makeText(this, "Nothing in your inventory!", Toast.LENGTH_LONG).show();
             invList = findViewById(R.id.listInventar);
-            invAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_multiple_choice, inventarArrayList);
+            invAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, inventarArrayList);
             invList.setAdapter(invAdapter);
         }
        invList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {

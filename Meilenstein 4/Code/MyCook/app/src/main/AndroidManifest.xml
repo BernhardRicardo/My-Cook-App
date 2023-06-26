@@ -22,21 +22,27 @@
             android:name=".newRecipeActivity"
             android:exported="false"
             android:label="@string/title_activity_new_recipe"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.MyCook" />
         <activity
             android:name=".RecommendedActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".RecipeActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".InventoryListActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".ShoppingListActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".FavoritesActivity"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

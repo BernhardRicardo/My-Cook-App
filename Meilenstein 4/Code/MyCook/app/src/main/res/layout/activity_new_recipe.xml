@@ -25,13 +25,12 @@
 
         <ImageView
             android:id="@+id/recipe_image"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/recipe_title"
-            android:layout_marginTop="4dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:src="@drawable/carbonara" />
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:src="@drawable/empty"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -58,11 +57,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/ingredientsEdittext"
-            android:text="Ingredients"
+            android:hint="New ingredients"
             android:height="48dp"
             android:layout_below="@id/ingredients_list_view"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@id/buttonAddingrediets"
             android:layout_marginRight="20dp"/>
 
         <Button
@@ -72,8 +73,8 @@
             android:text="+"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:layout_toRightOf="@+id/ingredientsEdittext"
             android:layout_below="@id/ingredients_list_view"
+            android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"/>
 
 
@@ -109,10 +110,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/stepsEdittext"
-            android:text="Step"
+            android:hint="Step"
             android:height="48dp"
             android:width="48dp"
             android:layout_below="@+id/layout_ingredients"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@id/buttonAddSteps"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"/>
@@ -125,20 +128,30 @@
             android:textSize="15sp"
             android:textStyle="bold"
             android:layout_below="@+id/layout_ingredients"
-            android:layout_toRightOf="@+id/stepsEdittext"
+            android:layout_alignParentRight="true"
             android:layout_marginRight="20dp"/>
 
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/newRecipeDone"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
             android:text="Done"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:layout_below="@+id/layout_ingredients"
-            android:layout_toRightOf="@+id/buttonAddSteps"
-
+            android:layout_below="@+id/stepsEdittext"
             />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="d"
+            android:textColor="#FFFFFF"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/newRecipeDone"/>
 
     </RelativeLayout>
 

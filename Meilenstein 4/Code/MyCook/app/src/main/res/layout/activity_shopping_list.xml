@@ -5,7 +5,7 @@
     android:id="@+id/screen_sopping"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#5C808080">
+    android:background="#FFFFFF">
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
