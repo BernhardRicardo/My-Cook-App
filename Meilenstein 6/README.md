@@ -44,6 +44,8 @@ nicht brauchen und möchten es wieder entfernen. (max. 2 Minuten)
 möchten diese dem Inventar hinzufügen. (max. 3 Minuten)
 13. Sie haben das Rezept gekocht und dabei alle Zwiebeln verbraucht. (mx. 2 Minuten)
 
+Die Aufgabenplan mit Voraussetzungen und Erledigungskriterien finden Sie [hier](https://code.fbi.h-da.de/human-computer-interaction/HCI_SS23_Meyer/HCI_SS23_Meyer_Gruppe3-Junker_Kohl_Putranto_Wroblewski/-/blob/main/Meilenstein%206/Aufgabenplan.pdf)
+
 ### Effektifität
 
 - Aufgabe wurde direkt verstanden und erfolgreich gelöst
