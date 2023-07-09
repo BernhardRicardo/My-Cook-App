@@ -4,6 +4,7 @@
 
 *  [Usability Test](#usability-test)
 *  [Design Review](#design-review)
+*  [Evalutation](#evaluation)
 *  [Liste der Verbesserungen](#liste-der-verbesserungen)
 
 ## Usability Test
@@ -74,10 +75,11 @@ Die Aufgabenplan mit Voraussetzungen und Erledigungskriterien finden Sie [hier](
 ### Effektifität
 
 - Aufgabe wurde direkt verstanden und erfolgreich gelöst
-- - Bis auf die 
+- - Bis auf die 8, 9 und die 11
 - Aufgabe wurde erst nach Fehlversuchen gelöst
+- - 8 und 11
 - Aufgabe konnte nur mit Hilfestellung gelöst werden:
-
+- - 9
     - Bei jeder Aufgabe steht eine Erwartete Zeitangabe, wird diese überschritten
 
     - gilt die Aufgabe als nicht gelöst und es wird eine Hilfestellung gegeben.
@@ -96,21 +98,52 @@ Die Aufgabenplan mit Voraussetzungen und Erledigungskriterien finden Sie [hier](
 3. Benutzerfreundlichkeit: 
 
     - Ist die Benutzeroberfläche klar verständlich? 
+    Ja
 
     - Sind alle Buttons und Aktionen leicht nachzuvollziehen? 
+    Ja
     
     - Benötigt der Benutzer Hilfe, um die App effizient zu nutzen?
+    Nein
 
 ## Design Review
 
 1. Schrift gut lesbar?
+    - Alles war gut lesbar.
+    Punkte: 9/10
+
 2. Icons gut erkennbar und Funktion verständlich?
+    - Funktionen der einzelnen Icons wie zmb. Favorit waren verständlich und wurden intuitiv genutzt.
+    Punkte: 10/10
+
 3. Farbgebung
+    - Farbgebung der App ist angenehm wobei das Icon mit dem Rot nicht so zu dem Lila der App passt.
+    Punkte: 8/10
+
 4. Größe der Bedienelemente
+    - Die Größe der Bedienelemente war so, dass diese ohne Probleme genutzt werden konnten.
+    Punkte: 9/10
+
 5. Sinnvolle Gruppierung der Bedienelemente?
+    - Ja, wobei man auch überlegen könnte den Recommended Teil als vierte Option für die Navigationsleiste zu gestalten.
+    Punkte: 8/10
+
 6. Abstände und Ränder
+    - Gut nur der Unterschied der Buttonbreite und der Eingabefelder zwischen den Screens ist leicht störend.
+    Punkte: 7/10
+
 7. Sinnvolles Verhalten beim Drehen des Smartphones (keine Zustandsänderung, kein Abbruch von Abläufen)
+    - Keine Änderung, ist geplant für einhändige benutzung beim kochen, daher Ja.
+    Punkte: 10/10
+
+
+    Gesamt: 61/70
+
 
 ## Liste der Verbesserungen
 
-1. 
+1. Icon-Farbe verändern der App anpassen.
+2. Das Delete durch ein Swipe oder durch eine Checkbox erstetzen, da das lange drücken nicht oft benutzt wird.
+3. Recommended besser Sichtbar machen, da man zum Beispiel aus dem Inventory Screen nicht direkt auf diesen zugreifen kann.
+4. Eine Funktion einfügen durch die man das "Rezept erstellen" abbrechen kann, ohne das man das Rezept fertig stellt oder die App beenden muss.
+5. Design vereinheitlichen in Sprache sowie Breite/Höhe der einzelnen Felder wie zum Beispiel der Buttons
