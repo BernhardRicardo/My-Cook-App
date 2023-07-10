@@ -53,14 +53,14 @@ entfernen. (max. 1 Minute)
 
 9. Ihre Inventarliste ist leer, jedoch haben sie bereits einige Vorräte daheim, die sie
 eintragen möchten. (max. 2 Minuten)
-- <120s, ohne Hilfestellung nicht hinbekommen, da dies eine Funktion ist die meist durch swipen oder ähnliches durchgeführt wird. 
+- 58s, gut geklappt, durch das schreiben und die Anzahl an Items jedoch länger gedauert 
 
 10. Sie merken, dass ihnen für ein Rezept noch Zwiebeln fehlen. (max. 2 Minuten)
 - 19s, wenige Klicks, direkt gefunden nur das schreiben hat gedauert. 
 
 11. Sie haben aus Versehen Knoblauch ihrer Shoppinglist hinzugefügt, obwohl sie es
 nicht brauchen und möchten es wieder entfernen. (max. 2 Minuten)
-- 58s, tatsächlich hier ähnlich wie bei der 9. da es so "ungewohnt" war, dass es direkt wieder vergessen wurde bis nach einiger Zeit wieder das drücke auspürobiert wurde.
+- <120s, ohne Hilfestellung nicht hinbekommen, da dies eine Funktion ist die meist durch swipen oder ähnliches durchgeführt wird. 
 
 12. Sie waren Einkaufen, haben alle Zutaten auf ihrer Shoppinglist gekauft und
 möchten diese dem Inventar hinzufügen. (max. 3 Minuten)
@@ -74,11 +74,11 @@ Die Aufgabenplan mit Voraussetzungen und Erledigungskriterien finden Sie [hier](
 ### Effektifität
 
 - Aufgabe wurde direkt verstanden und erfolgreich gelöst
-- - Bis auf die 8, 9 und die 11
+- - Bis auf die 8 und die 11
 - Aufgabe wurde erst nach Fehlversuchen gelöst
 - - 8 und 11
 - Aufgabe konnte nur mit Hilfestellung gelöst werden:
-- - 9
+- - 11
     - Bei jeder Aufgabe steht eine Erwartete Zeitangabe, wird diese überschritten
 
     - gilt die Aufgabe als nicht gelöst und es wird eine Hilfestellung gegeben.
